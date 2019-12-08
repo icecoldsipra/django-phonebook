@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="" />
+    <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/users_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/users_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/users_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/users_profile.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +73,7 @@
       <updated>1575806285133</updated>
       <workItem from="1575806290662" duration="1952000" />
       <workItem from="1575814720568" duration="2858000" />
-      <workItem from="1575827263350" duration="1414000" />
+      <workItem from="1575827263350" duration="10210000" />
     </task>
     <servers />
   </component>

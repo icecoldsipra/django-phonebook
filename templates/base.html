@@ -143,7 +143,7 @@
 
 <body>
 
-    <div class="container my-2">
+    <div class="container-fluid my-2">
         {% if messages %}
             {% for message in messages %}
                 <div class="alert alert-dismissable fade show alert-{{ message.tags }}">
@@ -154,7 +154,7 @@
         {% endif %}
     </div>
 
-    <div class="container">
+    <div class="container-fluid my-2">
         {% block content %}
         {% endblock %}
     </div>

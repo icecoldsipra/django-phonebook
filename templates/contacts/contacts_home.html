@@ -1,23 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="list-group">
-        <div class="container text-center" style="width: 300px">
-            <a href="{% url 'contacts-browse' %}" class="list-group-item list-group-item-action my-2" style="background-color: wheat">
+    <div class="container content-section text-center p-0 my-2">
+        <div class="list-group">
+            <a href="{% url 'contacts-browse' %}" class="list-group-item list-group-item-action my-1" style="background-color: wheat; min-height: 50px;">
                 Browse All Contacts
             </a>
-            <a href="{% url 'contacts-add' %}" class="list-group-item list-group-item-action my-2" style="background-color: wheat">
+        </div>
+        <div class="list-group">
+            <a href="{% url 'contacts-add' %}" class="list-group-item list-group-item-action my-1" style="background-color: wheat; min-height: 50px;">
                 Add Contact
             </a>
-            <a href="#" class="list-group-item list-group-item-action my-2 disabled" style="background-color: wheat">
+        </div>
+        <div class="list-group">
+             <a href="#" class="list-group-item list-group-item-action my-1" style="background-color: wheat; min-height: 50px;">
                 Update Contact
             </a>
-            <a href="#" class="list-group-item list-group-item-action my-2 disabled" style="background-color: wheat">
+        </div>
+        <div class="list-group">
+             <a href="#" class="list-group-item list-group-item-action my-1" style="background-color: wheat; min-height: 50px;">
                 Delete Contact
             </a>
-            <a href="{% url 'contacts-about' %}" class="list-group-item list-group-item-action my-2" style="background-color: wheat">
+        </div>
+        <div class="list-group">
+             <a href="{% url 'contacts-about' %}" class="list-group-item list-group-item-action my-1" style="background-color: wheat; min-height: 50px;">
                 About
             </a>
         </div>
     </div>
-{% endblock %}
+{% endblock content %}
