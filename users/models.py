@@ -7,7 +7,8 @@ from PIL import Image
 
 class CustomUserManager(BaseUserManager):
     # Specify all the required fields here
-    def create_user(self, email, username, first_name, last_name, password, is_active=False, is_staff=False, is_admin=False, **extra_fields):
+    def create_user(self, email, username, first_name, last_name, password, is_active=False, is_staff=False,
+                    is_admin=False, **extra_fields):
         """
         Creates and saves a User with the given email and password.
         """
