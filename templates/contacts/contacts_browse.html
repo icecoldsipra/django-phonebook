@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container content-section" style="width: 500px">
+    <div class="container content-section p-0">
         {% if object_list %}
             {% for object in object_list %}
                 <div class="list-group">
                     <a class="list-group-item list-group-item-action my-2" href="{% url 'contacts-view' object.id %}" style="background-color: wheat">
-                        <img src="{{ object.image.url }}" width="100" height="75" />
+                        <img src="{{ object.image.url }}" width="32" height="24" />
                         {{ object.first_name }} {{ object.last_name }}
                     </a>
                 </div>

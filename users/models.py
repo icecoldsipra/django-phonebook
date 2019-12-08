@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 from django.utils import timezone
 from django.shortcuts import reverse
-from PIL import Image
 
 
 class CustomUserManager(BaseUserManager):
@@ -91,6 +90,7 @@ class CustomUser(AbstractBaseUser):
     # set email as the default username for authentication
     USERNAME_FIELD = 'email'
     # Can add additional fields which will be asked during superuser creation
+    # These fields should also be included in the create_user() function in CustomUserManager class
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
     objects = CustomUserManager()
@@ -122,17 +122,6 @@ class CustomUser(AbstractBaseUser):
 
     def get_absolute_url(self):
         return reverse('users-profile', args=[str(self.id)])
-
-    """
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-
-        img = Image.open(self.image.path)
-
-        if img.height > 320 or img.width > 240:
-            img.thumbnail(320, 240)
-            img.save(self.image.path)
-    """
 
 
 # Model to store the list of logged in users

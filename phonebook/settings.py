@@ -15,17 +15,17 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (bool(os.environ.get('DJANGO_SECRET_KEY')) == True)
 
-ALLOWED_HOSTS = ['djangophonebook.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['djangophonebook.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
-
 INSTALLED_APPS = [
+    # User Apps
     'crispy_forms',
     'users.apps.UsersConfig',
     'contacts.apps.ContactsConfig',
-    'storages',
-    
+
+    # Default Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,14 +36,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Added
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'users.middleware.OneSessionPerUserMiddleware',
+    'users.middleware.OneSessionPerUserMiddleware',  # Added
 ]
 
 ROOT_URLCONF = 'phonebook.urls'
@@ -124,7 +124,10 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 
 # Required for Heroku deployment
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Adding static file compression and caching support in deployment
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Defining directory to store media files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -159,14 +162,3 @@ LOGGING = {
 
 # Activate Django-Heroku.
 django_heroku.settings(locals(), logging=False)
-
-"""
-# Setup AWS S3 bucket for file uploads
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-"""
