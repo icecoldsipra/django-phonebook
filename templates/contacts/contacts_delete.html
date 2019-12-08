@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container content-section" style="width: 500px">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <legend class="border-bottom mb-3">Delete Contact</legend>
+                Do you really want to delete <label style="color: red">{{ object.first_name }} {{ object.last_name }}</label>?
+            </div>
+            <div class="border-top text-center my-4 pt-3">
+                <button class="btn btn-outline-danger ml-2" type="submit">Confirm</button>
+                <a class="btn btn-outline-secondary ml-2" href="{% url 'contacts-view' object.id %}" type="button">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

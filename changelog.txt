@@ -1,0 +1,70 @@
+Phonebook - V1.0 (2019-12-04)
+-----------------------------
+- Updated Python version to V3.7.5
+- Updated Django version to V3.0
+- Updated Bootstrap version to V4.4.1
+- Enabled Font Awesome 5 icons in Navbar
+- Fixed git commit problems
+- Changed website background and font colours
+- Disabled email registration process
+
+
+Phonebook - V0.9 (2019-12-04)
+-----------------------------
+- Project deployed in Heroku
+
+
+Phonebook - V0.8 (2019-12-04)
+-----------------------------
+- Rolled back django version to 2.2.7 due to compatibility issues
+- Enabled features required for Heroku deployment
+- Updated requirements.txt file
+- Recreated virtual environment
+- Enabled logging in settings.py file to trace errors after deployment
+- Updated project secret key
+
+
+Phonebook - V0.7 (2019-12-03)
+-----------------------------
+- Enabled email verification process for new user signups
+- fixed .gitignore file
+- Added Known_Bugs.txt file for tracking known issues
+
+
+Phonebook - V0.6 (2019-12-03)
+-----------------------------
+- Updated requirements.txt file
+- Updated changelog
+- Fixed base.html rendering
+- Added upcoming_features.txt file
+
+
+Phonebook - V0.5 (2019-12-02)
+-----------------------------
+- Did a git push to GitHub for the first time
+
+
+Phonebook - V0.4 (2019-12-01)
+-----------------------------
+- Fixed Password Rest feature
+- Updated Custom user model
+
+
+Phonebook - V0.3 (2019-12-01)
+-----------------------------
+- Added Custom user model creation by replacing existing model
+- Added password reset features
+- Changed login feature from username to email ID
+
+
+Phonebook - V0.2 (2019-11-30)
+-----------------------------
+- Added custom Navbar
+- Added Create, View, Update and Delete contacts
+- Added login and logut feature
+- Added creating, viewing and updating user profiles
+
+
+Phonebook - V0.1 (2019-11-29)
+-----------------------------
+- Initial version

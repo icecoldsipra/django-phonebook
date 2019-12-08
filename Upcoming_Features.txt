@@ -1,0 +1,9 @@
+Phonebook Feature Pipeline
+--------------------------
+- Enable search bar present on the Bavbar
+- Send confirmation email and validation after user registration
+- Create custom Admin panel with custom templates
+- Add password change feature
+- Add animations to website
+- Make the project mobile friendly
+- Deploy project in Heroku

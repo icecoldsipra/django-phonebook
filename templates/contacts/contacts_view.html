@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container" style="width: 500px">
+        <legend class="border-bottom mb-3">Contact View</legend>
+        <div class="row">
+            <div class="col d-flex justify-content-center align-items-center h100 mb-3">
+                <img src="{{ object.image.url }}" width="320px" height="240px"/>
+            </div>
+        </div>
+        <div>
+            <div class="list-group" style="color: black">
+                <a class="list-group-item list-group-item-action my-1" style="background-color: wheat">
+                    <div class="row">
+                        <div class="col-4">
+                            First Name
+                        </div>
+                        <div class="col-8">
+                            {{ object.first_name }}
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action my-1" style="background-color: wheat">
+                    <div class="row">
+                        <div class="col-4">
+                            last Name
+                        </div>
+                        <div class="col-8">
+                            {{ object.last_name }}
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action my-1" style="background-color: wheat">
+                    <div class="row">
+                        <div class="col-4">
+                            Email
+                        </div>
+                        <div class="col-8">
+                            {{ object.email }}
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action my-1" style="background-color: wheat">
+                    <div class="row">
+                        <div class="col-4">
+                            Mobile
+                        </div>
+                        <div class="col-8">
+                            {{ object.mobile }}
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action my-1" style="background-color: wheat">
+                    <div class="row">
+                        <div class="col-4">
+                            City
+                        </div>
+                        <div class="col-8">
+                            {{ object.city }}
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action my-1" style="background-color: wheat">
+                    <div class="row">
+                        <div class="col-4">
+                            Date Added
+                        </div>
+                        <div class="col-8">
+                            {{ object.date_added }}
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action my-1" style="background-color: wheat">
+                    <div class="row">
+                        <div class="col-4">
+                            Last Updated
+                        </div>
+                        <div class="col-8">
+                            {{ object.date_updated }}
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="container text-center">
+            <div class="border-top my-4 pt-3">
+                <a class="btn btn-outline-success ml-2" href="{% url 'contacts-update' object.id %}" type="button">Update</a>
+                <a class="btn btn-outline-danger ml-2" href="{% url 'contacts-delete' object.id %}" type="button" >Delete</a>
+                <a class="btn btn-outline-info ml-2" href="{% url 'contacts-home' %}" type="button">Home</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

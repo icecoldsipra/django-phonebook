@@ -1,0 +1,26 @@
+.navbar {
+    background-color: ghostwhite;
+}
+
+.navbar-brand {
+    color: saddlebrown;
+}
+
+.fas:hover {
+    color: orange;
+
+}
+
+.nav-row {
+    font-size: smaller;
+    padding-inline: 0;
+}
+
+.nav-row:hover {
+    color: orange;
+}
+
+body {
+    background-color: #120d8b;
+    color: ghostwhite;
+}

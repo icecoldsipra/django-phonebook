@@ -1,0 +1,35 @@
+from django.db import models
+from django.utils import timezone
+from django.conf import settings
+from django.shortcuts import reverse
+# from PIL import Image
+
+
+# Create your models here.
+class Contact(models.Model):
+    added_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+    first_name = models.CharField(max_length=35, blank=True, default='')
+    last_name = models.CharField(max_length=35, blank=True, default='')
+    email = models.EmailField(max_length=100, blank=True, default='')
+    mobile = models.CharField(max_length=11, default='', blank=True)
+    city = models.CharField(max_length=25, default='', blank=True)
+    image = models.ImageField(upload_to='contacts', default='default.jpg', blank=True)
+    date_added = models.DateTimeField(default=timezone.now)
+    date_updated = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+    def get_absolute_url(self):
+        return reverse('contacts-view', args=[str(self.id)])
+
+    """
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+
+        if img.height > 320 or img.width > 240:
+            img.thumbnail(320, 240)
+            img.save(self.image.path)
+    """

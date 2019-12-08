@@ -1,0 +1,8 @@
+Known Bugs:
+-----------
+- Superuser email fields need to be automatically updated when created
+- Registration failure message does not appear in red
+- Email notification works in console backend but does not work in smtp backend
+- Navbar icons not aligning properly, especially in mobile view
+- Most part of website is not very responsive
+- Another user is able to login when one user is already logged in from same computer

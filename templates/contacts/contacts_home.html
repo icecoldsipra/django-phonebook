@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="list-group">
+        <div class="container text-center" style="width: 300px">
+            <a href="{% url 'contacts-browse' %}" class="list-group-item list-group-item-action my-2" style="background-color: wheat">
+                Browse All Contacts
+            </a>
+            <a href="{% url 'contacts-add' %}" class="list-group-item list-group-item-action my-2" style="background-color: wheat">
+                Add Contact
+            </a>
+            <a href="#" class="list-group-item list-group-item-action my-2 disabled" style="background-color: wheat">
+                Update Contact
+            </a>
+            <a href="#" class="list-group-item list-group-item-action my-2 disabled" style="background-color: wheat">
+                Delete Contact
+            </a>
+            <a href="{% url 'contacts-about' %}" class="list-group-item list-group-item-action my-2" style="background-color: wheat">
+                About
+            </a>
+        </div>
+    </div>
+{% endblock %}
