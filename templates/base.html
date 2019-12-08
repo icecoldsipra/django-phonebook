@@ -20,13 +20,13 @@
 
     <nav class="navbar navbar-expand-md navbar-light">
         {% if user.is_authenticated %}
-            <a class="navbar-brand" href="{{ user.get_absolute_url }}" style="color: saddlebrown">
+            <a class="navbar-brand" href="{{ user.get_absolute_url }}">
                 <img src="{{ user.image.url }}" width="40" height="40" class="d-inline-block align-center" />
                 <strong>{{ user }}</strong>
             </a>
         {% else %}
             <a class="navbar-brand">
-                <img src="{% static 'default.jpg' %}" width="40" height="40" class="d-inline-block align-center" />
+                <img src="{% static 'default.png' %}" width="40" height="40" class="d-inline-block align-center" />
                 Welcome, User!
             </a>
         {% endif %}
