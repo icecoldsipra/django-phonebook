@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/phonebook/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/autocomplete.781713f30664.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/autocomplete.css" beforeDir="false" />
@@ -259,15 +260,13 @@
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.min.c95393b8ca4d.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/base.bbc292697cc6.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/base.bbc292697cc6.css.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/base.css.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/default.f9bbf1538316.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/default.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/staticfiles.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/users_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/users_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/backends.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -349,7 +348,7 @@
       <workItem from="1575880736783" duration="602000" />
       <workItem from="1575881362875" duration="1353000" />
       <workItem from="1575882750628" duration="1436000" />
-      <workItem from="1575886157021" duration="1963000" />
+      <workItem from="1575886157021" duration="3990000" />
     </task>
     <servers />
   </component>

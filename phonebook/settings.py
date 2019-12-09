@@ -174,7 +174,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'mysite.log',
+            'filename': 'phonebook_log.log',
             'formatter': 'verbose'
         },
     },
