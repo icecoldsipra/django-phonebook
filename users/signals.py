@@ -22,11 +22,11 @@ def add_deadline(sender, instance, **kwargs):
     """
     If a new user is added from Admin panel, automatically set below attributes to None
     """
-    instance.is_active = True
-    instance.activation_deadline = None
-    instance.activation_status = True
-    instance.activation_date = None
-
+    if sender.is_admin or sender.is_staff:
+        instance.is_active = True
+        instance.activation_status = True
+        instance.activation_deadline = None
+        instance.activation_date = timezone.now()
 
 """
 @receiver(pre_delete, sender=CustomUser)
