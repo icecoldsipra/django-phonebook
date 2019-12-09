@@ -15,15 +15,23 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (bool(os.environ.get('DJANGO_SECRET_KEY')) == True)
 
+if not DEBUG:
+    # To avoid transmitting the CSRF cookie over HTTP accidentally
+    CSRF_COOKIE_SECURE = True
+    # To avoid transmitting the session cookie over HTTP accidentally
+    SESSION_COOKIE_SECURE = True
+    SECURE_SSL_REDIRECT = True
+
 ALLOWED_HOSTS = ['djangophonebook.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
 INSTALLED_APPS = [
     # User Apps
-    'crispy_forms',
     'users.apps.UsersConfig',
     'contacts.apps.ContactsConfig',
+    'crispy_forms',
+    'admin_honeypot',
 
     # Default Apps
     'django.contrib.admin',
@@ -43,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.gzip.GZipMiddleware',  # Added
     'users.middleware.OneSessionPerUserMiddleware',  # Added
 ]
 
@@ -143,11 +152,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Setup email backend for gmail and google apps
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587  # 465 for EMAIL_USE_SSL
-EMAIL_USE_TLS = True
+EMAIL_PORT = 465  # 587 for EMAIL_USE_TLS
+EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USERNAME')
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_USE_LOCALTIME = True
 
 # Logging for Heroku to trace errors after deployment
 LOGGING = {

@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 from .views import error_page
 
 urlpatterns = [
-    path('manage/', admin.site.urls, name='manage'),
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('phonebook-manager/', admin.site.urls, name='manage'),
     path('', include('users.urls')),
     path('contact/', include('contacts.urls')),
     path('error/', error_page, name='error-page')

@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from.forms import CustomUserCreationForm, CustomUserChangeForm
+from django.contrib.auth.models import Group
 
 
 class UserAdmin(BaseUserAdmin):
@@ -39,3 +40,6 @@ class UserAdmin(BaseUserAdmin):
 User = get_user_model()  # Reference the CustomUser model as User
 
 admin.site.register(User, UserAdmin)
+
+# Remove groups from Admin interface
+admin.site.unregister(Group)

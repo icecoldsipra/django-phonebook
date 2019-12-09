@@ -2,6 +2,10 @@
     background-color: whitesmoke;
 }
 
+.navbar-toggler {
+    font-size: smaller;
+}
+
 .navbar-brand {
     color: saddlebrown;
 }

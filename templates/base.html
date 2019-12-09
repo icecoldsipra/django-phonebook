@@ -31,13 +31,12 @@
             </a>
         {% endif %}
 
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse mx-2" id="navbarSupportedContent">
-            <div class="navbar-nav mx-auto">
+            <div class="navbar-nav ml-auto">
                 <div class="row">
                     <div class="col">
                         <a class="nav-item nav-link py-0" href="{% url 'contacts-home' %}">
@@ -82,7 +81,7 @@
                     {% if user.is_authenticated %}
                         {% if user.is_staff or user.is_admin %}
                             <div class="col">
-                                <a class="nav-item nav-link py-0" href="#">
+                                <a class="nav-item nav-link py-0" href="{% url 'admin:index' %}">
                                     <div class="row justify-content-center align-items-center">
                                         <i class="fas fa-users-cog fa-2x text-center"></i>
                                     </div>
@@ -126,24 +125,13 @@
                     {% endif %}
                 </div>
             </div>
-
-            <div class="navbar-nav">
-                <form class="form-inline">
-                    <div class="row">
-                        <div class="col">
-                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        </div>
-                    </div>
-                </form>
-            </div>
         </div>
     </nav>
-
 </head>
 
 <body>
 
-    <div class="container-fluid my-2">
+    <div class="container-fluid my-2 px-2" style="max-width: 500px;">
         {% if messages %}
             {% for message in messages %}
                 <div class="alert alert-dismissable fade show alert-{{ message.tags }}">
