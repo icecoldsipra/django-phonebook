@@ -41,7 +41,7 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
     def form_valid(self, form):
         user = form.save(commit=False)
         user.activation_deadline = timezone.now() + timezone.timedelta(days=7)
-
+        """
         body = render_to_string(
             'registration/account_activation_email.html',
             {
@@ -68,7 +68,7 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
         
         if sent:
             user.save()
-
+        """
         user.save()
 
         return super().form_valid(form)

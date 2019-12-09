@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (bool(os.environ.get('DJANGO_SECRET_KEY')) == True)
+DEBUG = (bool(os.environ.get('DJANGO_DEBUG')) == False)
 
 if not DEBUG:
     # To avoid transmitting the CSRF cookie over HTTP accidentally
@@ -22,7 +22,7 @@ if not DEBUG:
     SESSION_COOKIE_SECURE = True
     SECURE_SSL_REDIRECT = True
 
-ALLOWED_HOSTS = ['djangophonebook.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['djangophonebook.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -161,13 +161,36 @@ EMAIL_USE_LOCALTIME = True
 
 # Logging for Heroku to trace errors after deployment
 LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {"console": {"class": "logging.StreamHandler"}},
-    "loggers": {
-        "": {"handlers": ["console"], "level": "INFO"},
-        "django": {"handlers": ["console"], "level": "INFO"}
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
     },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'mysite.log',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers':['file'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+        'MYAPP': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    }
 }
 
 # Activate Django-Heroku.

@@ -3,20 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/phonebook/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phonebook/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +71,9 @@
       <workItem from="1575827263350" duration="12629000" />
       <workItem from="1575867562913" duration="643000" />
       <workItem from="1575871931708" duration="3930000" />
-      <workItem from="1575875932986" duration="262000" />
+      <workItem from="1575875932986" duration="985000" />
+      <workItem from="1575880736783" duration="602000" />
+      <workItem from="1575881362875" duration="518000" />
     </task>
     <servers />
   </component>
