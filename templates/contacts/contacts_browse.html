@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container content-section p-0 my-2" style="max-width: 500px;">
+    <div class="container content-section p-0 my-2" style="max-width: 300px; font-size: large; white-space: nowrap">
         {% if object_list %}
             {% for object in object_list %}
                 <div class="list-group">
                     <a class="list-group-item list-group-item-action my-1" href="{% url 'contacts-view' object.id %}" style="background-color: wheat; min-height: 50px;">
-                        <img src="{{ object.image.url }}" width="32" height="24" />
-                        {{ object.first_name }} {{ object.last_name }}
+                        <div class="row">
+                            <div class="col col-md-1 text-left">
+                                <img src="{{ object.image.url }}" width="40" height="30" />
+                            </div>
+                            <div class="col text-right">
+                                {{ object.first_name }} {{ object.last_name }}
+                            </div>
+                        </div>
                     </a>
                 </div>
             {% endfor %}

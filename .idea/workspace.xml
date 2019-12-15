@@ -3,8 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contacts/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contacts/2O5A6060.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contacts/IMG-20180327-WA0041.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contacts/IMG-20180327-WA0041_2jQkSLb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/contacts/identicon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/phonebook/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonebook/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonebook/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/autocomplete.781713f30664.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/autocomplete.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/base.ae33e6383baa.css" beforeDir="false" />
@@ -260,19 +271,49 @@
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.min.c95393b8ca4d.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/base.bbc292697cc6.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/base.bbc292697cc6.css.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/base.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/base.css.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/default.f9bbf1538316.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/default.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/staticfiles.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/account_activation_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/account_activation_email.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -348,7 +389,21 @@
       <workItem from="1575880736783" duration="602000" />
       <workItem from="1575881362875" duration="1353000" />
       <workItem from="1575882750628" duration="1436000" />
-      <workItem from="1575886157021" duration="3990000" />
+      <workItem from="1575886157021" duration="5172000" />
+      <workItem from="1575891422587" duration="2223000" />
+      <workItem from="1575904339405" duration="23000" />
+      <workItem from="1575910981877" duration="3006000" />
+      <workItem from="1575957991898" duration="1118000" />
+      <workItem from="1575959382823" duration="5823000" />
+      <workItem from="1575969911760" duration="2153000" />
+      <workItem from="1576046341507" duration="1626000" />
+      <workItem from="1576069260314" duration="4108000" />
+      <workItem from="1576129820309" duration="3996000" />
+      <workItem from="1576134726008" duration="2137000" />
+      <workItem from="1576140703608" duration="4126000" />
+      <workItem from="1576159039061" duration="290000" />
+      <workItem from="1576320555914" duration="2028000" />
+      <workItem from="1576414592726" duration="4435000" />
     </task>
     <servers />
   </component>

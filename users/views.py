@@ -15,11 +15,7 @@ from django.contrib.auth import login
 from django.contrib.auth.tokens import default_token_generator
 from django.conf import settings
 from django.contrib.auth.views import (
-    LoginView,
-    PasswordChangeView,
-    PasswordResetView,
-    PasswordResetDoneView,
-    PasswordResetConfirmView,
+    LoginView, LogoutView, PasswordChangeView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView,
     PasswordResetCompleteView,
 )
 
@@ -30,18 +26,26 @@ class UserLoginView(SuccessMessageMixin, LoginView):
     success_message = "Welcome! You were successfully logged in."
 
 
+# Enabling logout for user
+class UserLogoutView(LogoutView):
+    template_name = 'users/users_logout.html'
+    #next_page = reverse_lazy('users-login')
+
+
 class UserRegisterView(SuccessMessageMixin, CreateView):
     model = CustomUser
     template_name = 'users/users_register.html'
     form_class = CustomUserCreationForm
-    # success_message = "An email has been sent to your email ID for verification."
+    #success_message = "An email has been sent to your email ID for verification."
     success_message = "Please sign in to access your account."
     success_url = reverse_lazy('users-login')
 
     def form_valid(self, form):
         user = form.save(commit=False)
         user.activation_deadline = timezone.now() + timezone.timedelta(days=7)
-        """
+        user.is_active = True
+        user.save()
+
         body = render_to_string(
             'registration/account_activation_email.html',
             {
@@ -61,20 +65,15 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
             body=body,
             from_email=from_email,
             to=[to],
-            reply_to=[to]
         )
-
-        sent = send_email.send(fail_silently=False)
         
-        if sent:
-            user.save()
-        """
-        user.save()
+        send_email.content_subtype = "html"
+        # send_email.send(fail_silently=False)
 
         return super().form_valid(form)
 
 
-def users_activate(request, uidb64, token=None):
+def users_activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = CustomUser.objects.get(pk=uid)
@@ -89,12 +88,12 @@ def users_activate(request, uidb64, token=None):
         user.activation_deadline = None
         user.save()
 
-        login(request, user)
+        #login(request, user)
 
-        messages.success(request, "Your account has been verified successfully!")
-        return redirect('contacts-home')
+        messages.success(request, "Your email has been verified successfully!")
+        return redirect('users-login')
     else:
-        messages.error(request, "Your account could not be verified.")
+        messages.error(request, "Your email could not be verified.")
         # return render(request, 'account_activation_invalid.html')
         return render(request, 'users/users_login.html')
 

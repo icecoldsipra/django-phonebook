@@ -18,6 +18,7 @@ def contacts_home(request):
 
 # To display all contacts in the database specific to logged in user
 class ContactListView(LoginRequiredMixin, ListView):
+    model = Contact
     template_name = 'contacts/contacts_browse.html'
 
     def get_queryset(self):
@@ -60,7 +61,7 @@ class ContactCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return super().form_valid(form)
 
 
-# To view all details of a contact
+# To view all details of a single contact
 class ContactDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Contact
     template_name = 'contacts/contacts_view.html'

@@ -1,21 +1,6 @@
 from django import forms
 from .models import CustomUser
-from django.http import JsonResponse
 # from django.contrib.auth.forms import ReadOnlyPasswordHashField
-
-
-"""
-class UserRegisterForm(CustomUserCreationForm):
-    class Meta:
-        model = CustomUser
-        fields = ['email', 'first_name', 'last_name', 'password1', 'password2']
-
-
-class UserUpdateForm(forms.ModelForm):
-    class Meta:
-        model = CustomUser
-        fields = ['email', 'first_name', 'last_name', 'mobile', 'city', 'image']
-"""
 
 
 class CustomUserCreationForm(forms.ModelForm):
@@ -30,7 +15,7 @@ class CustomUserCreationForm(forms.ModelForm):
     class Meta:
         model = CustomUser
         # Add any required additional fields required for signup.
-        fields = ('email', 'username', 'first_name', 'last_name', 'password1', 'password2')
+        fields = ('email', 'first_name', 'last_name', 'password1', 'password2')
 
     """
     def clean_password(self):
@@ -66,32 +51,4 @@ class CustomUserChangeForm(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'first_name', 'last_name', 'mobile', 'city', 'image')
-
-
-"""
-class AjaxableResponseMixin:
-    
-    # Mixin to add AJAX support to a form.
-    # Must be used with an object-based FormView (e.g. CreateView)
-    
-    def form_invalid(self, form):
-        response = super().form_invalid(form)
-        if self.request.is_ajax():
-            return JsonResponse(form.errors, status=400)
-        else:
-            return response
-
-    def form_valid(self, form):
-        # We make sure to call the parent's form_valid() method because
-        # it might do some processing (in the case of CreateView, it will
-        # call form.save() for example).
-        response = super().form_valid(form)
-        if self.request.is_ajax():
-            data = {
-                'pk': self.object.pk,
-            }
-            return JsonResponse(data)
-        else:
-            return response
-"""
+        fields = ('first_name', 'last_name', 'mobile', 'city', 'image')

@@ -15,11 +15,12 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (bool(os.environ.get('DJANGO_DEBUG')) == False)
 
-if not DEBUG:
+if DEBUG:
     # To avoid transmitting the CSRF cookie over HTTP accidentally
     CSRF_COOKIE_SECURE = True
     # To avoid transmitting the session cookie over HTTP accidentally
     SESSION_COOKIE_SECURE = True
+    # To redirect all HTTP requests to HTTPS
     SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = ['djangophonebook.herokuapp.com', '127.0.0.1', 'localhost']
@@ -27,12 +28,6 @@ ALLOWED_HOSTS = ['djangophonebook.herokuapp.com', '127.0.0.1', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
-    # User Apps
-    'users.apps.UsersConfig',
-    'contacts.apps.ContactsConfig',
-    'crispy_forms',
-    'admin_honeypot',
-
     # Default Apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +35,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # User Apps
+    'users.apps.UsersConfig',
+    'contacts.apps.ContactsConfig',
+    'API.apps.ApiConfig',
+    'crispy_forms',
+    'admin_honeypot',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -104,10 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-)
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -124,6 +123,10 @@ USE_TZ = True
 # Change the built in User model to CustomUser model
 AUTH_USER_MODEL = 'users.CustomUser'  # <app>.<model>
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 # Defining directory to store static files
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
@@ -131,7 +134,7 @@ STATICFILES_DIRS = [
 STATIC_URL = '/static/'
 
 # Required for Heroku deployment
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Adding static file compression and caching support in deployment
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -150,45 +153,30 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Setup email backend for gmail and google apps
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465  # 587 for EMAIL_USE_TLS
-EMAIL_USE_SSL = True
+EMAIL_PORT = 587  # 465 for EMAIL_USE_SSL = True
+EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USERNAME')
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_USE_LOCALTIME = True
 
-# Logging for Heroku to trace errors after deployment
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
     'handlers': {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'phonebook_log.log',
-            'formatter': 'verbose'
+            'filename': 'logs.log',
         },
     },
     'loggers': {
         'django': {
-            'handlers':['file'],
-            'propagate': True,
-            'level':'DEBUG',
-        },
-        'MYAPP': {
             'handlers': ['file'],
             'level': 'DEBUG',
+            'propagate': True,
         },
-    }
+    },
 }
 
 # Activate Django-Heroku.

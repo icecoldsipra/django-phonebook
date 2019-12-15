@@ -2,14 +2,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import error_page
 
 urlpatterns = [
     path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path('phonebook-manager/', admin.site.urls, name='manage'),
     path('', include('users.urls')),
     path('contact/', include('contacts.urls')),
-    path('error/', error_page, name='error-page')
+    path('contact/api/', include('API.urls')),
 ]
 
 if settings.DEBUG:

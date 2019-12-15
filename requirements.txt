@@ -4,6 +4,7 @@ Django==3.0
 django-admin-honeypot==1.1.0
 django-crispy-forms==1.8.1
 django-heroku==0.3.1
+djangorestframework==3.10.3
 gunicorn==20.0.4
 Pillow==6.2.1
 psycopg2==2.8.4

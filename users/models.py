@@ -6,8 +6,8 @@ from django.shortcuts import reverse
 
 class CustomUserManager(BaseUserManager):
     # Specify all the required fields here
-    def create_user(self, email, username, first_name, last_name, password, is_active=False, is_staff=False,
-                    is_admin=False, **extra_fields):
+    def create_user(self, email, first_name, last_name, password, is_active=False, is_staff=False, is_admin=False,
+                    **extra_fields):
         """
         Creates and saves a User with the given email and password.
         """
@@ -21,7 +21,6 @@ class CustomUserManager(BaseUserManager):
 
         user = self.model(
             email=self.normalize_email(email),  # Converts all characters of email field to lower cases
-            username=username,
             first_name=first_name,
             last_name=last_name,
             is_active=is_active,
@@ -35,14 +34,13 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_staffuser(self, email, first_name, last_name, username, password, **extra_fields):
+    def create_staffuser(self, email, first_name, last_name, password, **extra_fields):
         """
         Creates and saves a staff user with the given email and password.
         """
 
         user = self.create_user(
             email=email,
-            username=username,
             first_name=first_name,
             last_name=last_name,
             password=password,
@@ -52,14 +50,13 @@ class CustomUserManager(BaseUserManager):
         )
         return user
 
-    def create_superuser(self, email, first_name, last_name, username, password, **extra_fields):
+    def create_superuser(self, email, first_name, last_name, password, **extra_fields):
         """
         Creates and saves a superuser with the given email and password.
         """
 
         user = self.create_user(
             email=email,
-            username=username,
             first_name=first_name,
             last_name=last_name,
             password=password,
@@ -72,7 +69,6 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractBaseUser):
     email = models.EmailField(unique=True, max_length=100)
-    username = models.CharField(unique=True, max_length=35, blank=True, default='')
     first_name = models.CharField(max_length=35)
     last_name = models.CharField(max_length=35)
     mobile = models.CharField(max_length=11, blank=True, default='')
@@ -91,7 +87,7 @@ class CustomUser(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     # Can add additional fields which will be asked during superuser creation
     # These fields should also be included in the create_user() function in CustomUserManager class
-    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
+    REQUIRED_FIELDS = ['first_name', 'last_name']
 
     objects = CustomUserManager()
 
@@ -131,4 +127,4 @@ class LoggedInUser(models.Model):
     session_key = models.CharField(max_length=32, null=True, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user
