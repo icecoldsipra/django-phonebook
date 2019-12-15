@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/contacts/2O5A6060.JPG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/contacts/IMG-20180327-WA0041.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/contacts/IMG-20180327-WA0041_2jQkSLb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/contacts/identicon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/phonebook/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phonebook/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phonebook/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/autocomplete.781713f30664.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/autocomplete.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/base.ae33e6383baa.css" beforeDir="false" />
@@ -274,18 +262,59 @@
       <change beforePath="$PROJECT_DIR$/staticfiles/base.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/default.f9bbf1538316.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/default.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-theme.min.66b84a04375e.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-tweaks.46ed116b0edd.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-tweaks.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap.min.77017a69879a.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/default.8d5591a6aabc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/default.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/font-awesome-4.0.3.c1e1ea213abf.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/font-awesome-4.0.3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/prettify.a987f72342ee.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/prettify.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/css/base.3208b6cc4466.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/css/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/css/highlight.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/css/highlight.e0e4d973c6d7.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/css/jquery.json-view.min.a2e6beeb6710.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/css/jquery.json-view.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/img/favicon.5195b4d0f3eb.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/img/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/img/grid.a4b938cf382b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/img/grid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/js/api.c9743eab7a4f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/js/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/js/highlight.pack.479b5f21dcba.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/js/highlight.pack.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/js/jquery.json-view.min.b7c2d6981377.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/docs/js/jquery.json-view.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/fonts/fontawesome-webfont.83e37a11f9d7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.08eda92397ae.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/img/glyphicons-halflings-white.9bbc6e960299.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/img/glyphicons-halflings-white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/img/glyphicons-halflings.90233c9067e9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/img/glyphicons-halflings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/img/grid.a4b938cf382b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/img/grid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/ajax-form.0ea6e6052ab5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/ajax-form.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/bootstrap.min.3d8308804264.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/coreapi-0.1.1.8851fb9336c9.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/coreapi-0.1.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/csrf.969930007329.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/csrf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/default.5b08897dbdc3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/default.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/jquery-3.4.1.min.220afd743d9e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/jquery-3.4.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/prettify-min.709bfcc456c6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/prettify-min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/staticfiles.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/account_activation_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/account_activation_email.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -403,7 +432,8 @@
       <workItem from="1576140703608" duration="4126000" />
       <workItem from="1576159039061" duration="290000" />
       <workItem from="1576320555914" duration="2028000" />
-      <workItem from="1576414592726" duration="4435000" />
+      <workItem from="1576414592726" duration="4983000" />
+      <workItem from="1576419663825" duration="867000" />
     </task>
     <servers />
   </component>

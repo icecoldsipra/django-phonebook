@@ -13,9 +13,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (bool(os.environ.get('DJANGO_DEBUG')) == False)
+DEBUG = (bool(os.environ.get('DJANGO_DEBUG')) == True)
 
-if DEBUG:
+if not DEBUG:
     # To avoid transmitting the CSRF cookie over HTTP accidentally
     CSRF_COOKIE_SECURE = True
     # To avoid transmitting the session cookie over HTTP accidentally
