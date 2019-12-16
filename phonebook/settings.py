@@ -167,7 +167,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'logs.log',
+            'filename': 'Phonebook_logs.log',
         },
     },
     'loggers': {

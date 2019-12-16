@@ -1,9 +1,18 @@
 from django.contrib.auth import user_logged_in, user_logged_out
-from django.db.models.signals import post_save
+from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 from .models import CustomUser, LoggedInUser
 from django.utils import timezone
+from django.core.exceptions import PermissionDenied
 
+
+#@receiver(pre_save, sender=CustomUser)
+#def save_superuser(sender, instance, **kwargs):
+#    """
+#    Prevent staff members from updating/changing superuser access
+#    """
+#    if instance.is_admin:
+#        raise PermissionDenied
 
 # @receiver(post_save, sender=CustomUser)
 # def add_deadline(sender, instance, **kwargs):

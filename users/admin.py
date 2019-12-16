@@ -36,8 +36,10 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 
-User = get_user_model()  # Reference the CustomUser model as User
+# Reference the CustomUser model as User
+User = get_user_model()
 
+# Register models
 admin.site.register(User, UserAdmin)
 
 # Remove groups from Admin interface

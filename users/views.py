@@ -7,7 +7,7 @@ from django.views.generic import CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import CustomUser
 from django.utils import timezone
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
@@ -29,7 +29,7 @@ class UserLoginView(SuccessMessageMixin, LoginView):
 # Enabling logout for user
 class UserLogoutView(LogoutView):
     template_name = 'users/users_logout.html'
-    #next_page = reverse_lazy('users-login')
+    # next_page = reverse_lazy('users-login')
 
 
 class UserRegisterView(SuccessMessageMixin, CreateView):
@@ -43,22 +43,24 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
     def form_valid(self, form):
         user = form.save(commit=False)
         user.activation_deadline = timezone.now() + timezone.timedelta(days=7)
-        user.is_active = True
+        user.is_active = True # Turn this to False once email validation is implemented
         user.save()
 
+        subject = "Activate Your PhoneBook Account"
+        to = form.cleaned_data['email']  # Get the email ID mentioned in registration form
+        from_email = settings.EMAIL_HOST_USER
+
         body = render_to_string(
-            'registration/account_activation_email.html',
-            {
+            'registration/account_activation_email.html', {
                 'user': user,
                 'domain': self.request.get_host,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': default_token_generator.make_token(user),
             }
         )
-        subject = "Activate Your Account"
-        to = form.cleaned_data['email']  # Get the email ID mentioned in registration form
-        from_email = settings.EMAIL_HOST_USER
 
+        print(f"subject = {subject}, body = {body}, from = {from_email}, to = {to}")
+        """
         # Send email to registered user
         send_email = EmailMessage(
             subject=subject,
@@ -68,8 +70,8 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
         )
         
         send_email.content_subtype = "html"
-        # send_email.send(fail_silently=False)
-
+        send_email.send(fail_silently=False)
+        """
         return super().form_valid(form)
 
 
@@ -85,16 +87,14 @@ def users_activate(request, uidb64, token):
         user.is_active = True
         user.activation_status = True
         user.activation_date = timezone.now()
-        user.activation_deadline = None
         user.save()
 
-        #login(request, user)
+        # login(request, user)
 
         messages.success(request, "Your email has been verified successfully!")
         return redirect('users-login')
     else:
         messages.error(request, "Your email could not be verified.")
-        # return render(request, 'account_activation_invalid.html')
         return render(request, 'users/users_login.html')
 
 

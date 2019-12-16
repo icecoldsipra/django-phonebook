@@ -11,5 +11,4 @@ def add_contact_details(sender, instance, created, **kwargs):
 
     if created:
         if instance.added_by is None:
-            print("added by is none")
             instance.added_by = kwargs.get('user')

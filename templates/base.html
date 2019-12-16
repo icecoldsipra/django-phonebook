@@ -14,7 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
 
     <!-- Base CSS -->
-    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
     <title>Phonebook</title>
 
@@ -68,16 +68,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col">
-                        <a class="nav-item nav-link py-0" href="#">
-                            <div class="row justify-content-center align-items-center">
-                                <i class="fas fa-user-minus fa-2x text-center"></i>
-                            </div>
-                            <div class="nav-row row justify-content-center align-items-center">
-                                Delete
-                            </div>
-                        </a>
-                    </div>
+
                     {% if user.is_authenticated %}
                         {% if user.is_staff or user.is_admin %}
                             <div class="col">

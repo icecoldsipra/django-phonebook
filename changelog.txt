@@ -1,3 +1,11 @@
+Phonebook - V1.1 (2019-12-15)
+-----------------------------
+- Added code to implement Django Rest Framework
+- Improved some views to make the code more cleaner
+- Enabled additional security features to prevent unauthorized access to Admin panel
+- Enabled customizing Admin panel
+
+
 Phonebook - V1.0 (2019-12-04)
 -----------------------------
 - Updated Python version to V3.7.5

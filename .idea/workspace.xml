@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Upcoming_Features.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Upcoming_Features.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/changelog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/signals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/phonebook/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/autocomplete.781713f30664.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/autocomplete.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/css/base.ae33e6383baa.css" beforeDir="false" />
@@ -259,7 +263,9 @@
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.min.c95393b8ca4d.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/admin/js/vendor/xregexp/xregexp.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/base.bbc292697cc6.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/base.bbc292697cc6.css.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/base.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/staticfiles/base.css.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/default.f9bbf1538316.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/default.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/css/bootstrap-theme.min.66b84a04375e.css" beforeDir="false" />
@@ -315,6 +321,13 @@
       <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/prettify-min.709bfcc456c6.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/rest_framework/js/prettify-min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/staticfiles/staticfiles.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/users_logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/users_logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -348,6 +361,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -360,7 +375,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programs\Django\phonebook-main\static\css" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -433,7 +455,9 @@
       <workItem from="1576159039061" duration="290000" />
       <workItem from="1576320555914" duration="2028000" />
       <workItem from="1576414592726" duration="4983000" />
-      <workItem from="1576419663825" duration="867000" />
+      <workItem from="1576419663825" duration="1381000" />
+      <workItem from="1576470405684" duration="8521000" />
+      <workItem from="1576485504052" duration="139000" />
     </task>
     <servers />
   </component>
