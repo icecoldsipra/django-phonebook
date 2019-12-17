@@ -88,7 +88,7 @@ $(function () {
     $codeBlocks.filter('[data-language="' + language + '"]').removeClass('hide')
   })
 
-  // API Explorer
+  // api Explorer
   $('form.api-interaction').submit(function (event) {
     event.preventDefault()
 

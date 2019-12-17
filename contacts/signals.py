@@ -9,6 +9,5 @@ def add_contact_details(sender, instance, created, **kwargs):
     If a new contact is added, automatically update the added_by field
     """
 
-    if created:
-        if instance.added_by is None:
-            instance.added_by = kwargs.get('user')
+    if created and instance.added_by is None:
+        print(kwargs.get('added_by'))

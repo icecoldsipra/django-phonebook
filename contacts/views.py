@@ -9,7 +9,6 @@ from django.contrib import messages
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
-# from django.http import JsonResponse
 
 
 def contacts_home(request):
@@ -29,7 +28,7 @@ class ContactListView(LoginRequiredMixin, ListView):
 class ContactCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Contact
     template_name = 'contacts/contacts_add.html'
-    success_message = "Contact added successfully."
+    success_message = "Contact %(first_name)s was added successfully."
     success_url = reverse_lazy('contacts-browse')
     fields = ['first_name', 'last_name', 'email', 'mobile', 'city', 'image']
 
@@ -37,7 +36,7 @@ class ContactCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         form.instance.added_by = self.request.user
 
         """
-        subject = f"One Contact Has Been Added - {form.instance.first_name} {form.instance.last_name}"
+        subject = f"New Contact Added to PhoneBook - {form.instance.first_name} {form.instance.last_name}"
         to = self.request.user
         from_email = settings.EMAIL_HOST_USER
         body = render_to_string('contacts/contact_add_email.html', {
@@ -77,7 +76,7 @@ class ContactDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 class ContactUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     model = Contact
     template_name = 'contacts/contacts_update.html'
-    success_message = 'Contact Updated Successfully'
+    success_message = 'Contact %(first_name)s was updated successfully'
     fields = ['first_name', 'last_name', 'email', 'mobile', 'city', 'image']
     #success_url = reverse_lazy('contacts-browse')
 
@@ -160,15 +159,6 @@ class ContactDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
         send_email.send()
         
         return super().form_valid(form)
-    """
-
-    """
-    def render_to_response(self, context, **kwargs):
-        """ 'Allow AJAX requests to be handled more gracefully' """
-        if self.request.is_ajax():
-            return JsonResponse('Success', safe=False, **kwargs)
-        else:
-            return super().render_to_response(context, **kwargs)
     """
 
 

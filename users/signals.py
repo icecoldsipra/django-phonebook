@@ -1,29 +1,28 @@
 from django.contrib.auth import user_logged_in, user_logged_out
-from django.db.models.signals import pre_save, post_save
+from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 from .models import CustomUser, LoggedInUser
 from django.utils import timezone
 from django.core.exceptions import PermissionDenied
 
 
-#@receiver(pre_save, sender=CustomUser)
-#def save_superuser(sender, instance, **kwargs):
-#    """
-#    Prevent staff members from updating/changing superuser access
-#    """
-#    if instance.is_admin:
-#        raise PermissionDenied
+@receiver(pre_delete, sender=CustomUser)
+def save_superuser(sender, instance, **kwargs):
+    """
+    Prevent admin members from deleting superuser account
+    """
+    if instance.is_admin:
+        raise PermissionDenied
 
-# @receiver(post_save, sender=CustomUser)
-# def add_deadline(sender, instance, **kwargs):
-#    """
-#    If a new user is added from Admin panel, automatically set below attributes to None
-#    """
-#    if sender.is_admin or sender.is_staff:
-#        instance.is_active = True
-#        instance.activation_status = True
-#        instance.activation_deadline = None
-#        instance.activation_date = timezone.now()
+
+@receiver(post_save, sender=CustomUser)
+def update_user(sender, instance, created, **kwargs):
+    """
+    If a new user is created, automatically update below attributes
+    """
+    if created and not instance.email_sent:
+        instance.is_active = True
+        instance.activation_date = timezone.now()
 
 
 @receiver(user_logged_in)

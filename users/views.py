@@ -37,13 +37,13 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
     template_name = 'users/users_register.html'
     form_class = CustomUserCreationForm
     #success_message = "An email has been sent to your email ID for verification."
-    success_message = "Please sign in to access your account."
+    success_message = "Welcome %(first_name)s. Please sign in to access your account."
     success_url = reverse_lazy('users-login')
 
     def form_valid(self, form):
         user = form.save(commit=False)
         user.activation_deadline = timezone.now() + timezone.timedelta(days=7)
-        user.is_active = True # Turn this to False once email validation is implemented
+        user.email_sent = False  # Turn this to True once email validation is implemented
         user.save()
 
         subject = "Activate Your PhoneBook Account"
@@ -59,8 +59,6 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
             }
         )
 
-        print(f"subject = {subject}, body = {body}, from = {from_email}, to = {to}")
-        """
         # Send email to registered user
         send_email = EmailMessage(
             subject=subject,
@@ -70,8 +68,8 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
         )
         
         send_email.content_subtype = "html"
-        send_email.send(fail_silently=False)
-        """
+        # send_email.send(fail_silently=False)
+
         return super().form_valid(form)
 
 
@@ -80,10 +78,12 @@ def users_activate(request, uidb64, token):
         uid = force_text(urlsafe_base64_decode(uidb64))
         user = CustomUser.objects.get(pk=uid)
         token = default_token_generator.make_token(user)
+        print(f"uid = {uid}, uidb64 = {uidb64}, token = {token}")
     except (TypeError, ValueError, OverflowError, CustomUser.DoesNotExist):
         user = None
 
     if user and default_token_generator.check_token(user, token):
+        user.validation_token = f"{uidb64} : {token}"
         user.is_active = True
         user.activation_status = True
         user.activation_date = timezone.now()

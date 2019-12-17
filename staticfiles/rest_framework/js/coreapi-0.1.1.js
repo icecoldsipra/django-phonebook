@@ -1086,7 +1086,7 @@ function URL(address, location, parser) {
 
   //
   // The following if statements allows this module two have compatibility with
-  // 2 different API:
+  // 2 different api:
   //
   // 1. Node.js's `url.parse` api which accepts a URL, boolean as arguments
   //    where the boolean indicates that the query string should also be parsed.

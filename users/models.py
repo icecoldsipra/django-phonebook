@@ -74,7 +74,7 @@ class CustomUser(AbstractBaseUser):
     mobile = models.CharField(max_length=11, blank=True, default='')
     city = models.CharField(max_length=35, blank=True, default='')
     image = models.ImageField(upload_to='users', default='default.png', blank=True)
-    activation_status = models.BooleanField(blank=True, null=True, default=False)
+    email_sent = models.BooleanField(blank=True, null=True, default=False)
     activation_deadline = models.DateTimeField(blank=True, null=True, default=None)
     activation_date = models.DateTimeField(blank=True, null=True, default=None)
     is_active = models.BooleanField(default=False)  # Can login
@@ -91,8 +91,8 @@ class CustomUser(AbstractBaseUser):
 
     objects = CustomUserManager()
 
-    def __str__(self):
-        return self.email
+    # def __str__(self):
+    #    return self.email
 
     def get_full_name(self):
         if self.first_name and self.last_name:

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load socialaccount %}
 
 {% block content %}
     <div class="container p-0" style="max-width: 500px;">
@@ -9,6 +10,13 @@
         <div>
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
+                    <div class="text-center my-3 p-0">
+                        <div class="col m-2 p-0">
+                            <a class="btn btn-outline-success ml-2" href="{% provider_login_url "google" %}" type="button">
+                                Sign Up With Google
+                            </a>
+                        </div>
+                    </div>
                     {% csrf_token %}
                     {{ form|crispy }}
                 </div>

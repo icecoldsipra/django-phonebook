@@ -1,3 +1,12 @@
+Phonebook - V1.2 (2019-12-18)
+-----------------------------
+- Upgraded Python version to V3.8.0
+- Added social login features. Currently being tested
+- Added security to ensure superuser account is not deleted by accident
+- Improved Phonebook API endpoints
+- Fixed Signup page to make it more responsive
+
+
 Phonebook - V1.1 (2019-12-15)
 -----------------------------
 - Added code to implement Django Rest Framework

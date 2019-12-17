@@ -35,14 +35,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # Added
 
     # User Apps
     'users.apps.UsersConfig',
     'contacts.apps.ContactsConfig',
-    'API.apps.ApiConfig',
+    'api.apps.ApiConfig',
     'crispy_forms',
     'admin_honeypot',
     'rest_framework',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +130,17 @@ AUTH_USER_MODEL = 'users.CustomUser'  # <app>.<model>
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',  # Added
 )
+
+# Required for Django-Allauth
+SITE_ID = 1
+# Required for Django-Allauth
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_UNIQUE_EMAIL = True
 
 # Defining directory to store static files
 STATICFILES_DIRS = [
