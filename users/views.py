@@ -43,7 +43,8 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
     def form_valid(self, form):
         user = form.save(commit=False)
         user.activation_deadline = timezone.now() + timezone.timedelta(days=7)
-        user.email_sent = False  # Turn this to True once email validation is implemented
+        user.email_sent = True  # Turn this to True once email validation is implemented
+        user.is_active = False
         user.save()
 
         subject = "Activate Your PhoneBook Account"

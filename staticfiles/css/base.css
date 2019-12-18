@@ -27,4 +27,6 @@
 body {
     background-color: #120d8b;
     color: ghostwhite;
+    overflow: auto;
+    padding-bottom: 60px;
 }

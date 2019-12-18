@@ -15,7 +15,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     # Path to include Django Rest Framework API endpoints
     path('api/', include('api.urls')),
-    path('api/contacts/', include('api.urls')),
 ]
 
 if settings.DEBUG:

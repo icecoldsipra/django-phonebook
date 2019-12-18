@@ -5,7 +5,20 @@ from rest_framework.serializers import (
 )
 
 
-class CustomUserSerializer(ModelSerializer):
+class CustomUserCreateSerializer(ModelSerializer):
+    password1 = []
+
+    class Meta:
+        model = CustomUser
+        fields = ('email', 'first_name', 'last_name', 'password1', 'password2')
+
+        extra_kwargs = {
+            'password': {'write_only': True},
+            'first_name': {'required': True}
+        }
+
+
+class CustomUserProfileSerializer(ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('pk', 'email', 'first_name', 'last_name', 'mobile', 'city', 'image', 'date_joined', 'last_login',
@@ -18,9 +31,23 @@ contact_url = HyperlinkedIdentityField(
 )
 
 
+class ContactCreateSerializer(ModelSerializer):
+    contact_url = contact_url
+
+    class Meta:
+        model = Contact
+        fields = ('contact_url', 'first_name', 'last_name', 'email', 'mobile', 'city', 'image')
+
+        extra_kwargs = {
+            'first_name': {'required': True}
+        }
+
+
 class ContactSerializer(ModelSerializer):
     contact_url = contact_url
     """
+    # Replaces numbers by actual values
+    
     added_by = SerializerMethodField()
     image = SerializerMethodField()
 

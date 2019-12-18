@@ -35,7 +35,6 @@ class ContactCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     def form_valid(self, form):
         form.instance.added_by = self.request.user
 
-        """
         subject = f"New Contact Added to PhoneBook - {form.instance.first_name} {form.instance.last_name}"
         to = self.request.user
         from_email = settings.EMAIL_HOST_USER
@@ -55,8 +54,10 @@ class ContactCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
             from_email=from_email,
             to=[to]
         )
-        send_email.send()
-        """
+
+        send_email.content_subtype = "html"
+        # send_email.send(fail_silently=False)
+
         return super().form_valid(form)
 
 
@@ -89,7 +90,6 @@ class ContactUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
     def form_valid(self, form):
         form.instance.date_updated = timezone.now()
 
-        """
         subject = f"One Contact Has Been Updated - {form.instance.first_name} {form.instance.last_name}"
         to = self.request.user
         from_email = settings.EMAIL_HOST_USER
@@ -110,8 +110,9 @@ class ContactUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
             from_email=from_email,
             to=[to]
         )
-        send_email.send()
-        """
+        send_email.content_subtype = "html"
+        # send_email.send(fail_silently=False)
+
         return super().form_valid(form)
 
 
@@ -134,7 +135,6 @@ class ContactDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
             return True
         return False
 
-    """
     def form_valid(self, form):
         subject = f"One Contact Has Been Deleted - {form.instance.first_name} {form.instance.last_name}"
         to = self.request.user
@@ -156,11 +156,12 @@ class ContactDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
             from_email=from_email,
             to=[to]
         )
-        send_email.send()
+        send_email.content_subtype = "html"
+        # send_email.send(fail_silently=False)
         
         return super().form_valid(form)
-    """
 
 
 def contacts_about(request):
     return render(request, 'contacts/contacts_about.html')
+

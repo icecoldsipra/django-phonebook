@@ -61,7 +61,7 @@ function doAjaxSubmit(e) {
         return;
       }
 
-      // Use the FormData api and allow the content type to be set automatically,
+      // Use the FormData API and allow the content type to be set automatically,
       // so it includes the boundary string.
       // See https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
       contentType = false;
@@ -98,7 +98,7 @@ function doAjaxSubmit(e) {
         history.replaceState({}, '', url);
         scroll(0, 0);
       } catch (err) {
-        // History api not supported, so redirect.
+        // History API not supported, so redirect.
         window.location = url;
       }
     } else {

@@ -7,7 +7,7 @@ from django.shortcuts import reverse
 # Create your models here.
 class Contact(models.Model):
     added_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
-    first_name = models.CharField(max_length=35, blank=True, default='')
+    first_name = models.CharField(max_length=35)
     last_name = models.CharField(max_length=35, blank=True, default='')
     email = models.EmailField(max_length=100, blank=True, default='')
     mobile = models.CharField(max_length=11, default='', blank=True)

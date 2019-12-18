@@ -6,7 +6,7 @@ from django.shortcuts import reverse
 
 class CustomUserManager(BaseUserManager):
     # Specify all the required fields here
-    def create_user(self, email, first_name, last_name, password, is_active=False, is_staff=False, is_admin=False,
+    def create_user(self, email, first_name, last_name, password, is_active=True, is_staff=False, is_admin=False,
                     **extra_fields):
         """
         Creates and saves a User with the given email and password.
@@ -14,10 +14,13 @@ class CustomUserManager(BaseUserManager):
 
         # Raise exception if user does not have an email
         if not email:
-            raise ValueError("Users must have an email address.")
+            raise ValueError("Users must provide an email address.")
         # Raise exception if user does not have a password
         if not password:
-            raise ValueError("Users must have a password.")
+            raise ValueError("Users must enter a password.")
+        # Raise exception if user does not enter a first name
+        if not first_name:
+            raise ValueError("Users must provide first name.")
 
         user = self.model(
             email=self.normalize_email(email),  # Converts all characters of email field to lower cases
@@ -70,14 +73,14 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser):
     email = models.EmailField(unique=True, max_length=100)
     first_name = models.CharField(max_length=35)
-    last_name = models.CharField(max_length=35)
+    last_name = models.CharField(max_length=35, blank=True, default='')
     mobile = models.CharField(max_length=11, blank=True, default='')
     city = models.CharField(max_length=35, blank=True, default='')
     image = models.ImageField(upload_to='users', default='default.png', blank=True)
     email_sent = models.BooleanField(blank=True, null=True, default=False)
     activation_deadline = models.DateTimeField(blank=True, null=True, default=None)
     activation_date = models.DateTimeField(blank=True, null=True, default=None)
-    is_active = models.BooleanField(default=False)  # Can login
+    is_active = models.BooleanField(default=True)  # Can login
     is_staff = models.BooleanField(default=False)  # staff but non-superuser
     is_admin = models.BooleanField(default=False)  # superuser
     date_joined = models.DateTimeField(default=timezone.now)  # Sets value to current date and time
@@ -97,6 +100,7 @@ class CustomUser(AbstractBaseUser):
     def get_full_name(self):
         if self.first_name and self.last_name:
             return self.first_name + " " + self.last_name
+        return self.first_name
 
     def get_short_name(self):
         if self.first_name:

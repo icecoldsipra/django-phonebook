@@ -5,6 +5,7 @@ Phonebook - V1.2 (2019-12-18)
 - Added security to ensure superuser account is not deleted by accident
 - Improved Phonebook API endpoints
 - Fixed Signup page to make it more responsive
+- Added bottom navbar
 
 
 Phonebook - V1.1 (2019-12-15)

@@ -1,26 +1,25 @@
-from .serializers import CustomUserSerializer, ContactSerializer
 from contacts.models import Contact
 from users.models import CustomUser
 from django.utils import timezone
 from .permissions import IsOwnerOrReadOnly
 from .pagination import CustomLimitOffsetPagination
 from rest_framework.filters import SearchFilter, OrderingFilter
+from .serializers import (
+    CustomUserProfileSerializer, CustomUserCreateSerializer, ContactSerializer, ContactCreateSerializer
+)
 from rest_framework.generics import (
-    CreateAPIView, ListAPIView, RetrieveAPIView, RetrieveUpdateAPIView, DestroyAPIView
+    CreateAPIView, ListAPIView, RetrieveAPIView, RetrieveUpdateAPIView, RetrieveDestroyAPIView
 )
 
 
-# Endpoint to list one single contact of the logged in user
-class CustomUserRetrieveAPIView(RetrieveAPIView):
-    serializer_class = CustomUserSerializer
-
-    def get_queryset(self):
-        return CustomUser.objects.filter(email=self.request.user)
+# Endpoint to register new user
+class CustomUserCreateAPIView(CreateAPIView):
+    serializer_class = CustomUserCreateSerializer
 
 
 # Endpoint with prefilled values to update one single contact of the logged in user
 class CustomUserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
-    serializer_class = CustomUserSerializer
+    serializer_class = CustomUserProfileSerializer
 
     def get_queryset(self):
         return CustomUser.objects.filter(email=self.request.user)
@@ -29,7 +28,7 @@ class CustomUserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
 # Endpoint to create a new contact
 class ContactCreateAPIView(CreateAPIView):
     queryset = CustomUser.objects.all()
-    serializer_class = ContactSerializer
+    serializer_class = ContactCreateSerializer
 
     def perform_create(self, serializer):
         serializer.save(
@@ -69,7 +68,7 @@ class ContactRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         )
 
 
-class ContactDestroyAPIView(DestroyAPIView):
+class ContactRetrieveDestroyAPIView(RetrieveDestroyAPIView):
     serializer_class = ContactSerializer
 
     def get_queryset(self):
