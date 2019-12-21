@@ -85,6 +85,10 @@ class CustomUser(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)  # superuser
     date_joined = models.DateTimeField(default=timezone.now)  # Sets value to current date and time
 
+    class Meta:
+        verbose_name = 'Registered User'
+        verbose_name_plural = 'Registered Users'
+
     # Username and password are required by default
     # set email as the default username for authentication
     USERNAME_FIELD = 'email'
@@ -100,7 +104,8 @@ class CustomUser(AbstractBaseUser):
     def get_full_name(self):
         if self.first_name and self.last_name:
             return self.first_name + " " + self.last_name
-        return self.first_name
+        else:
+            return self.first_name
 
     def get_short_name(self):
         if self.first_name:

@@ -18,7 +18,7 @@
 
     <title>Phonebook</title>
 
-    <nav class="navbar navbar-expand-md sticky-top navbar-light">
+    <nav class="navbar navbar-expand-md navbar-light py-1">
         <div class="navbar-nav mx-auto" id="navbarSupportedContent">
             {% if user.is_authenticated %}
                 <a class="navbar-brand" href="{{ user.get_absolute_url }}">
@@ -105,7 +105,7 @@
                         <div class="col">
                             <a class="nav-item nav-link py-0 px-2" href="{% url 'users-register' %}">
                                 <div class="row justify-content-center align-items-center">
-                                    <i class="fas fa-sign-out-alt fa-2x text-center"></i>
+                                    <i class="fas fa-door-open fa-2x text-center"></i>
                                 </div>
                                 <div class="nav-row row justify-content-center align-items-center">
                                     <span class="text-center" style="white-space: nowrap;">Sign Up</span>

@@ -11,7 +11,6 @@ from django.core.mail import EmailMessage, send_mail
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
-from django.contrib.auth import login
 from django.contrib.auth.tokens import default_token_generator
 from django.conf import settings
 from django.contrib.auth.views import (
@@ -29,22 +28,21 @@ class UserLoginView(SuccessMessageMixin, LoginView):
 # Enabling logout for user
 class UserLogoutView(LogoutView):
     template_name = 'users/users_logout.html'
-    # next_page = reverse_lazy('users-login')
 
 
 class UserRegisterView(SuccessMessageMixin, CreateView):
     model = CustomUser
     template_name = 'users/users_register.html'
     form_class = CustomUserCreationForm
-    #success_message = "An email has been sent to your email ID for verification."
-    success_message = "Welcome %(first_name)s. Please sign in to access your account."
+    # success_message = "An email has been sent to your email ID for verification."
+    success_message = f"Welcome %(first_name)s. Please sign in to access your account."
     success_url = reverse_lazy('users-login')
 
     def form_valid(self, form):
         user = form.save(commit=False)
         user.activation_deadline = timezone.now() + timezone.timedelta(days=7)
-        user.email_sent = True  # Turn this to True once email validation is implemented
-        user.is_active = False
+        user.email_sent = False  # Turn this to True once email validation is implemented
+        # user.is_active = False
         user.save()
 
         subject = "Activate Your PhoneBook Account"
@@ -90,9 +88,7 @@ def users_activate(request, uidb64, token):
         user.activation_date = timezone.now()
         user.save()
 
-        # login(request, user)
-
-        messages.success(request, "Your email has been verified successfully!")
+        messages.success(request, "Your email has been verified successfully! Please login to access the website.")
         return redirect('users-login')
     else:
         messages.error(request, "Your email could not be verified.")

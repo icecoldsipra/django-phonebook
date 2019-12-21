@@ -86,12 +86,25 @@ WSGI_APPLICATION = 'phonebook.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'djangodb',
+            'USER': 'postgres',
+            'PASSWORD': 'password',
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
 
 
 # Password validation
@@ -135,10 +148,9 @@ AUTHENTICATION_BACKENDS = (
 
 # Required for Django-Allauth
 SITE_ID = 1
-# Required for Django-Allauth
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
 
@@ -159,17 +171,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # Defining which page to redirect to once user logs in
-LOGIN_REDIRECT_URL = 'contacts-home'  # This is url name
-LOGIN_URL = 'users-login'  # This is url route
+LOGIN_REDIRECT_URL = 'contacts-home'
+LOGIN_URL = 'users-login'
 
 # Set the default front end to use for Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Setup email backend for gmail and google apps
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587  # 465 for EMAIL_USE_SSL = True
 EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_PORT = 587  # 465 for EMAIL_USE_SSL = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_USERNAME')
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
