@@ -153,6 +153,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_ADAPTER = 'users.adapter.AccountAdapter'  # Required for enabling custom adapters in Django-Allauth
 
 # Defining directory to store static files
 STATICFILES_DIRS = [
@@ -180,12 +181,10 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Setup email backend for gmail and google apps
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-EMAIL_PORT = 587  # 465 for EMAIL_USE_SSL = True
+EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_USERNAME')
-EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
+EMAIL_USE_TLS = True
 
 LOGGING = {
     'version': 1,

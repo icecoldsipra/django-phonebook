@@ -1,11 +1,17 @@
 {% autoescape off %}
-    Hi {{ user.get_short_name }},
+    Hi {{ user.get_short_name|capfirst }},
 
-    Thank you for signing up with Phonebook. Please click on the link below to verify your account:
+    <p>Thank you for signing up with DjangoPhonebook. Please click on the link below to verify your account:</p>
 
-    http://{{ domain }}{% url 'users-activate' uidb64=uid token=token %}
+    <!--
+    <button class="btn btn-danger" href="#" >Verify</button>
 
-    <strong>Important:</strong> If your e-mail is not verified within 7 days, it will be deactivated.
+    <p>You can also click on the link below or simply copy and paste the url in your web browser to complete the verifcation process.</p>
+    -->
+
+    <p>http://{{ domain }}{% url 'users-activate' uidb64=uid token=token %}</p>
+
+    <p><strong>Important:</strong> If your e-mail is not verified within 7 days, it will be deactivated.</p>
 
     Thanks!
 
