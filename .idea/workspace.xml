@@ -3,20 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Changelog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phonebook/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contacts/contact_add_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contact_add_email.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contacts/contact_delete_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contact_delete_email.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contacts/contact_update_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contact_update_email.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_delete.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/password_reset_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/users_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/users_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -174,7 +172,8 @@
       <workItem from="1577034129115" duration="4867000" />
       <workItem from="1577039084533" duration="9083000" />
       <workItem from="1577795965796" duration="1753000" />
-      <workItem from="1578046755847" duration="3240000" />
+      <workItem from="1578046755847" duration="3798000" />
+      <workItem from="1578082692063" duration="4485000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import CustomUserCreationForm, CustomUserChangeForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm, UserPasswordChangeForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
@@ -15,7 +15,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.conf import settings
 from django.contrib.auth.views import (
     LoginView, LogoutView, PasswordChangeView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView,
-    PasswordResetCompleteView,
+    PasswordResetCompleteView
 )
 
 
@@ -44,7 +44,7 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
         user.is_active = False
         user.save()
 
-        subject = "Activate Your PhoneBook Account"
+        subject = f"Phonebook | Activate Your Account | {form.cleaned_data['email']}"
         to = form.cleaned_data['email']
         from_email = settings.EMAIL_HOST_USER
         body = render_to_string(
@@ -100,7 +100,7 @@ class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
 
 class UserPasswordChangeView(LoginRequiredMixin, SuccessMessageMixin, PasswordChangeView):
     model = CustomUser
-    form_class = CustomUserChangeForm
+    form_class = UserPasswordChangeForm
     template_name = 'registration/password_change_form.html'
 
 

@@ -12,6 +12,7 @@ class Contact(models.Model):
     email = models.EmailField(max_length=100, blank=True, default='')
     mobile = models.CharField(max_length=11, default='', blank=True)
     city = models.CharField(max_length=25, default='', blank=True)
+    birthday = models.DateField(blank=True, null=True)
     image = models.ImageField(upload_to='contacts', default='default.png', blank=True)
     date_added = models.DateTimeField(default=timezone.now)
     date_updated = models.DateTimeField(default=timezone.now)

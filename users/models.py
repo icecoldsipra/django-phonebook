@@ -77,6 +77,7 @@ class CustomUser(AbstractBaseUser):
     mobile = models.CharField(max_length=11, blank=True, default='')
     city = models.CharField(max_length=35, blank=True, default='')
     image = models.ImageField(upload_to='users', default='default.png', blank=True)
+    birthday = models.DateField(blank=True, null=True)
     email_sent = models.BooleanField(blank=True, null=True, default=False)
     activation_deadline = models.DateTimeField(blank=True, null=True, default=None)
     activation_date = models.DateTimeField(blank=True, null=True, default=None)

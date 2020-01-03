@@ -8,16 +8,44 @@
     </p>
 
     <p>
-        First Name  : {{ first_name }} <br>
-        Last Name   : {{ last_name }} <br>
-        Email       : {{ email }} <br>
-        Mobile      : {{ mobile }} <br>
-        City        : {{ city }} <br>
-        Date Added  : {{ date_added }} <br>
+        <table cellspacing=”0” cellpadding=”0” align=”center” border=”1”>
+            <tr>
+                <th>First Name</th>
+                <td>{{ first_name }}</td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td>{{ last_name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ email }}</td>
+            </tr>
+            <tr>
+                <th>Mobile</th>
+                <td>{{ mobile }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ city }}</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>{{ birthday }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ image }}</td>
+            </tr>
+            <tr>
+                <th>Date Added</th>
+                <td>{{ date_added }}</td>
+            </tr>
+        </table>
     </p>
 
     <p>
-        Thanks,
+        Thanks, <br>
         Phonebook Manager
     </p>
 {% endautoescape %}

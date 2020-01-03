@@ -30,12 +30,12 @@ class ContactCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     template_name = 'contacts/contacts_add.html'
     success_message = "Contact %(first_name)s was added successfully."
     success_url = reverse_lazy('contacts-browse')
-    fields = ['first_name', 'last_name', 'email', 'mobile', 'city', 'image']
+    fields = ['first_name', 'last_name', 'email', 'mobile', 'city', 'birthday', 'image']
 
     def form_valid(self, form):
         form.instance.added_by = self.request.user
 
-        subject = f"[Phonebook] New Contact Added | {form.instance.get_full_name()}"
+        subject = f"Phonebook | New Contact Added | {form.instance.get_full_name()}"
         to = self.request.user
         from_email = settings.EMAIL_HOST_USER
         body = render_to_string('contacts/contact_add_email.html', {
@@ -44,6 +44,8 @@ class ContactCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
             'email': form.instance.email,
             'mobile': form.instance.mobile,
             'city': form.instance.city,
+            'birthday': form.instance.birthday,
+            'image': form.instance.image.url,
             'date_added': form.instance.date_added,
         })
 
@@ -78,7 +80,7 @@ class ContactUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
     model = Contact
     template_name = 'contacts/contacts_update.html'
     success_message = 'Contact %(first_name)s was updated successfully'
-    fields = ['first_name', 'last_name', 'email', 'mobile', 'city', 'image']
+    fields = ['first_name', 'last_name', 'email', 'mobile', 'city', 'birthday', 'image']
     #success_url = reverse_lazy('contacts-browse')
 
     def test_func(self):
@@ -90,7 +92,7 @@ class ContactUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
     def form_valid(self, form):
         form.instance.date_updated = timezone.now()
 
-        subject = f"[Phonebook] Contact Updated | {form.instance.get_full_name()}"
+        subject = f"Phonebook | Contact Updated | {form.instance.get_full_name()}"
         to = self.request.user
         from_email = settings.EMAIL_HOST_USER
         body = render_to_string('contacts/contact_update_email.html', {
@@ -99,6 +101,8 @@ class ContactUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
             'email': form.instance.email,
             'mobile': form.instance.mobile,
             'city': form.instance.city,
+            'birthday': form.instance.birthday,
+            'image': form.instance.image.url,
             'date_added': form.instance.date_added,
             'date_updated': form.instance.date_updated,
         })
@@ -136,7 +140,7 @@ class ContactDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
         return False
 
     def form_valid(self, form):
-        subject = f"[Phonebook] Contact Deleted | {form.instance.get_full_name()}"
+        subject = f"Phonebook | Contact Deleted | {form.instance.get_full_name()}"
         to = self.request.user
         from_email = settings.EMAIL_HOST_USER
         body = render_to_string('contacts/contact_update_email.html', {
@@ -145,7 +149,10 @@ class ContactDeleteView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageM
             'email': form.instance.email,
             'mobile': form.instance.mobile,
             'city': form.instance.city,
+            'birthday': form.instance.birthday,
+            'image': form.instance.image.url,
             'date_added': form.instance.date_added,
+            'date_updated': form.instance.date_updated,
             'date_deleted': timezone.now(),
         })
 
