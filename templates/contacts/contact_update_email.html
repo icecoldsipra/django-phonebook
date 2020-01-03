@@ -1,16 +1,24 @@
 {% autoescape off %}
-    Hi,
+    <p>
+        Hi,
+    </p>
 
-    A contact was updated in your Phonebook. Details are below:
+    <p>
+        A contact was updated in your Phonebook. Details are below:
+    </p>
 
-    First Name   : {{ first_name }}
-    Last Name    : {{ last_name }}
-    Email        : {{ email }}
-    Mobile       : {{ mobile }}
-    City         : {{ city }}
-    Date Added   : {{ date_added }}
-    Date Updated : {{ date_updated }}
+    <p>
+        First Name   : {{ first_name }} <br>
+        Last Name    : {{ last_name }} <br>
+        Email        : {{ email }} <br>
+        Mobile       : {{ mobile }} <br>
+        City         : {{ city }} <br>
+        Date Added   : {{ date_added }} <br>
+        Date Updated : {{ date_updated }} <br>
+    </p>
 
-    Thanks!
-
+    <p>
+        Thanks,
+        Phonebook Manager
+    </p>
 {% endautoescape %}

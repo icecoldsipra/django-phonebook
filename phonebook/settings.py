@@ -5,7 +5,6 @@ import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -37,10 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',  # Added
 
-    # User Apps
-    'users.apps.UsersConfig',
-    'contacts.apps.ContactsConfig',
-    'api.apps.ApiConfig',
+    # 3rd Party Apps
     'crispy_forms',
     'admin_honeypot',
     'rest_framework',
@@ -48,6 +44,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+
+    # User Apps
+    'users.apps.UsersConfig',
+    'contacts.apps.ContactsConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
@@ -185,6 +186,11 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_USERNAME')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 EMAIL_USE_TLS = True
+
+ADMINS = [
+    ("DjangoPhonebook", "djangophonebook@gmail.com"),
+    ("Suprasad Kamath", os.environ.get('PERSONAL_EMAIL')),
+]
 
 LOGGING = {
     'version': 1,

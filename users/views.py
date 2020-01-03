@@ -35,13 +35,12 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
     template_name = 'users/users_register.html'
     form_class = CustomUserCreationForm
     success_message = "An email has been sent to your email ID '%(email)s' for verification."
-    # success_message = f"Welcome %(first_name)s. Please sign in to access your account."
     success_url = reverse_lazy('users-login')
 
     def form_valid(self, form):
         user = form.save(commit=False)
         user.activation_deadline = timezone.now() + timezone.timedelta(days=7)
-        user.email_sent = True  # Turn this to True once email validation is implemented
+        user.email_sent = True
         user.is_active = False
         user.save()
 
@@ -92,16 +91,17 @@ def users_activate(request, uidb64, token):
         return render(request, 'users/users_login.html')
 
 
-class UserPasswordChangeView(LoginRequiredMixin, SuccessMessageMixin, PasswordChangeView):
-    model = CustomUser
-    form_class = CustomUserChangeForm
-
-
 class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = CustomUser
     template_name = 'users/users_profile.html'
     form_class = CustomUserChangeForm
     success_message = "Profile updated successfully."
+
+
+class UserPasswordChangeView(LoginRequiredMixin, SuccessMessageMixin, PasswordChangeView):
+    model = CustomUser
+    form_class = CustomUserChangeForm
+    template_name = 'registration/password_change_form.html'
 
 
 class UserPasswordResetView(PasswordResetView):

@@ -1,18 +1,22 @@
-.navbar {
+nav {
     background-color: whitesmoke;
+    font-size: inherit;
 }
 
 .navbar-toggler {
     font-size: smaller;
 }
 
-.navbar-brand {
+navbar-brand {
+    color: black;
+}
+
+navbar-brand:hover {
     color: saddlebrown;
 }
 
 .fas:hover {
     color: orange;
-
 }
 
 .nav-row {
@@ -29,4 +33,12 @@ body {
     color: ghostwhite;
     overflow: auto;
     padding-bottom: 60px;
+    font-size: medium;
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: smaller;
+        padding-bottom: 30px;
+    }
 }

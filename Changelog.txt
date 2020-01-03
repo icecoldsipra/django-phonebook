@@ -1,3 +1,10 @@
+Phonebook - V1.3 (2019-12-18)
+-----------------------------
+- Upgraded Django version to V3.0.2
+- Updated email notifications
+- Made website more responsive
+
+
 Phonebook - V1.2 (2019-12-18)
 -----------------------------
 - Upgraded Python version to V3.8.0
