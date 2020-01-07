@@ -4,7 +4,7 @@ from .forms import CustomUserCreationForm, CustomUserChangeForm, UserPasswordCha
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import CustomUser
 from django.utils import timezone
 from django.core.mail import EmailMessage
@@ -91,11 +91,18 @@ def users_activate(request, uidb64, token):
         return render(request, 'users/users_login.html')
 
 
-class UserUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     model = CustomUser
     template_name = 'users/users_profile.html'
     form_class = CustomUserChangeForm
     success_message = "Profile updated successfully."
+
+    # To ensure that only the logged in user has access to his content
+    def test_func(self):
+        obj = self.get_object()
+        if self.request.user.email == obj.email:
+            return True
+        return False
 
 
 class UserPasswordChangeView(LoginRequiredMixin, SuccessMessageMixin, PasswordChangeView):
