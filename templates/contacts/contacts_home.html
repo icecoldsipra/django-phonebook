@@ -12,6 +12,13 @@
                 Add Contact
             </a>
         </div>
+        {% if user.is_staff or user.is_admin %}
+            <div class="list-group">
+                <a href="{% url 'admin:index' %}" class="list-group-item list-group-item-action my-1" style="background-color: wheat; min-height: 50px;">
+                    Admin
+                </a>
+            </div>
+        {% endif %}
         <div class="list-group">
              <a href="{% url 'contacts-about' %}" class="list-group-item list-group-item-action my-1" style="background-color: wheat; min-height: 50px;">
                 About

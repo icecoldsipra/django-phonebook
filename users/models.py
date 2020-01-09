@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 from django.utils import timezone
 from django.shortcuts import reverse
+from django.utils.text import slugify
 
 
 class CustomUserManager(BaseUserManager):
@@ -74,6 +75,7 @@ class CustomUser(AbstractBaseUser):
     email = models.EmailField(unique=True, max_length=100)
     first_name = models.CharField(max_length=35)
     last_name = models.CharField(max_length=35, blank=True, default='')
+    slug = models.SlugField(unique=True, max_length=100, default='')
     mobile = models.CharField(max_length=11, blank=True, default='')
     city = models.CharField(max_length=35, blank=True, default='')
     image = models.ImageField(upload_to='users', default='default.png', blank=True)
@@ -127,7 +129,21 @@ class CustomUser(AbstractBaseUser):
         return True
 
     def get_absolute_url(self):
-        return reverse('users-profile', args=[str(self.id)])
+        return reverse('users-profile', kwargs={'slug': self.slug})
+
+    def _get_unique_slug(self):
+        slug = slugify(self.get_full_name())
+        unique_slug = slug
+        num = 1
+        while CustomUser.objects.filter(slug=unique_slug).exists():
+            unique_slug = f"{slug}-{num}"
+            num += 1
+        return unique_slug
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self._get_unique_slug()
+        super().save(*args, **kwargs)
 
 
 # Model to store the list of logged in users
