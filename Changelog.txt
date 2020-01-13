@@ -1,3 +1,13 @@
+Phonebook - V1.4 (2020-01-13)
+-----------------------------
+- Sluggified the urls
+- Improved permissions to prevent users from accessing others' profile details
+- Added custom 403 Error page
+- Added custom 404 Error page
+- Added tests
+- Other minor updates
+
+
 Phonebook - V1.3 (2019-12-18)
 -----------------------------
 - Upgraded Django version to V3.0.2

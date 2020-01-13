@@ -39,7 +39,7 @@ class ContactCreateSerializer(ModelSerializer):
         fields = ('contact_url', 'first_name', 'last_name', 'email', 'mobile', 'city', 'image')
 
         extra_kwargs = {
-            'first_name': {'required': True}
+            'first_name': {'required': True},
         }
 
 
@@ -63,5 +63,5 @@ class ContactSerializer(ModelSerializer):
     """
     class Meta:
         model = Contact
-        fields = ('contact_url', 'pk', 'first_name', 'last_name', 'email', 'mobile', 'city', 'image', 'date_added',
-                  'date_updated')
+        fields = ('contact_url', 'pk', 'slug', 'first_name', 'last_name', 'email', 'mobile', 'city', 'image',
+                  'date_added', 'date_updated')

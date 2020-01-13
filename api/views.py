@@ -50,6 +50,7 @@ class ContactListAPIView(ListAPIView):
 # Endpoint to list one single contact of the logged in user
 class ContactRetrieveAPIView(RetrieveAPIView):
     serializer_class = ContactSerializer
+    # lookup_field = 'slug'
 
     def get_queryset(self):
         return Contact.objects.filter(added_by=self.request.user)
@@ -58,6 +59,7 @@ class ContactRetrieveAPIView(RetrieveAPIView):
 # Endpoint with prefilled values to update one single contact of the logged in user
 class ContactRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     serializer_class = ContactSerializer
+    # lookup_field = 'slug'
 
     def get_queryset(self):
         return Contact.objects.filter(added_by=self.request.user).order_by('-date_added')
@@ -70,6 +72,7 @@ class ContactRetrieveUpdateAPIView(RetrieveUpdateAPIView):
 
 class ContactRetrieveDestroyAPIView(RetrieveDestroyAPIView):
     serializer_class = ContactSerializer
+    # lookup_field = 'slug'
 
     def get_queryset(self):
         return Contact.objects.filter(added_by=self.request.user).order_by('-date_added')

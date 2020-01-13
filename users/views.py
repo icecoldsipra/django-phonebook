@@ -44,7 +44,7 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
         user.is_active = False
         user.save()
 
-        subject = f"Phonebook | Activate Your Account | {form.cleaned_data['email']}"
+        subject = f"DjangoPhonebook | Activate Your Account | {form.cleaned_data['email']}"
         to = form.cleaned_data['email']
         from_email = settings.EMAIL_HOST_USER
         body = render_to_string(

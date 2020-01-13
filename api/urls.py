@@ -13,6 +13,6 @@ urlpatterns = [
     path('contacts/add/', ContactCreateAPIView.as_view(), name='contacts-add-api'),
     path('contacts/view/', ContactListAPIView.as_view(), name='contacts-browse-api'),
     path('contacts/view/<int:pk>/', ContactRetrieveAPIView.as_view(), name='contacts-view-api'),
-    path('contacts/view/<int:pk>/update/', ContactRetrieveUpdateAPIView.as_view(), name='contacts-update-api'),
-    path('contacts/view/<int:pk>/delete/', ContactRetrieveDestroyAPIView.as_view(), name='contacts-delete-api'),
+    path('contacts/view/<slug>/update/', ContactRetrieveUpdateAPIView.as_view(), name='contacts-update-api'),
+    path('contacts/view/<slug>/delete/', ContactRetrieveDestroyAPIView.as_view(), name='contacts-delete-api'),
 ]
