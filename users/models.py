@@ -73,11 +73,13 @@ class CustomUserManager(BaseUserManager):
 
 class CustomUser(AbstractBaseUser):
     email = models.EmailField(unique=True, max_length=100)
-    first_name = models.CharField(max_length=35)
-    last_name = models.CharField(max_length=35, blank=True, default='')
-    slug = models.SlugField(unique=True, max_length=100, default='')
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255, blank=True, default='')
+    slug = models.SlugField(unique=True, max_length=255, default='')
     mobile = models.CharField(max_length=11, blank=True, default='')
-    city = models.CharField(max_length=35, blank=True, default='')
+    city = models.CharField(max_length=255, blank=True, default='')
+    ip_address = models.CharField(max_length=35, blank=True, default='')
+    user_agent = models.CharField(max_length=255, blank=True, default='')
     image = models.ImageField(upload_to='users', default='default.png', blank=True)
     birthday = models.DateField(blank=True, null=True)
     email_sent = models.BooleanField(blank=True, null=True, default=False)

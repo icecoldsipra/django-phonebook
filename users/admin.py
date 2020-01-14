@@ -13,13 +13,13 @@ class UserAdmin(BaseUserAdmin):
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
     list_display = ('email', 'pk', 'slug', 'first_name', 'last_name', 'mobile', 'city', 'birthday', 'date_joined',
-                    'email_sent', 'activation_deadline', 'activation_date', 'last_login', 'is_active', 'is_staff',
-                    'is_admin')
+                    'email_sent', 'activation_deadline', 'activation_date', 'ip_address', 'user_agent', 'last_login',
+                    'is_active', 'is_staff', 'is_admin')
     list_filter = ('is_active', 'is_staff', 'is_admin')
 
     # Break down how various fields appear in the Admin panel
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'date_joined', 'last_login', 'slug')}),
+        (None, {'fields': ('email', 'password', 'date_joined', 'last_login', 'slug', 'ip_address', 'user_agent')}),
         ('Personal info', {'fields': ('first_name', 'last_name', 'mobile', 'city', 'birthday')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_admin')}),
     )

@@ -30,6 +30,34 @@ class UserLogoutView(LogoutView):
     template_name = 'users/users_logout.html'
 
 
+def get_ip(request):
+    """
+    This function captures the user's IP Address and User-Agent at the time of signup
+    """
+
+    values = {}
+
+    try:
+        x_forward = request.META.get("HTTP_X_FORWARDED_FOR")
+        if x_forward:
+            ip = x_forward.split(",")[0]
+            pass
+        else:
+            ip = request.META.get("REMOTE_ADDR")
+    except:
+        ip = ""
+
+    try:
+        user_agent = request.META.get("HTTP_USER_AGENT")
+    except:
+        user_agent = ""
+
+    values['ip'] = ip
+    values['user_agent'] = user_agent
+
+    return values
+
+
 class UserRegisterView(SuccessMessageMixin, CreateView):
     model = CustomUser
     template_name = 'users/users_register.html'
@@ -42,6 +70,8 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
         user.activation_deadline = timezone.now() + timezone.timedelta(days=7)
         user.email_sent = True
         user.is_active = False
+        user.ip_address = get_ip(self.request)['ip']
+        user.user_agent = get_ip(self.request)['user_agent']
         user.save()
 
         subject = f"DjangoPhonebook | Activate Your Account | {form.cleaned_data['email']}"
