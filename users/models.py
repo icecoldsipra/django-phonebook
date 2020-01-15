@@ -72,23 +72,24 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser):
-    email = models.EmailField(unique=True, max_length=100)
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255, blank=True, default='')
-    slug = models.SlugField(unique=True, max_length=255, default='')
-    mobile = models.CharField(max_length=11, blank=True, default='')
-    city = models.CharField(max_length=255, blank=True, default='')
-    ip_address = models.CharField(max_length=35, blank=True, default='')
-    user_agent = models.CharField(max_length=255, blank=True, default='')
-    image = models.ImageField(upload_to='users', default='default.png', blank=True)
-    birthday = models.DateField(blank=True, null=True)
-    email_sent = models.BooleanField(blank=True, null=True, default=False)
-    activation_deadline = models.DateTimeField(blank=True, null=True, default=None)
-    activation_date = models.DateTimeField(blank=True, null=True, default=None)
-    is_active = models.BooleanField(default=True)  # Can login
-    is_staff = models.BooleanField(default=False)  # staff but non-superuser
-    is_admin = models.BooleanField(default=False)  # superuser
-    date_joined = models.DateTimeField(default=timezone.now)  # Sets value to current date and time
+    email = models.EmailField("Email", unique=True, max_length=100, help_text="Enter Valid Email ID")
+    first_name = models.CharField("First Name", max_length=255, help_text="Enter Your First Name")
+    last_name = models.CharField("Last Name", max_length=255, blank=True, default='', help_text="Enter Your Last Name")
+    slug = models.SlugField("Slug", unique=True, max_length=255, default='')
+    mobile = models.CharField("Mobile", max_length=11, blank=True, default='', help_text="Enter Your Mobile Number")
+    city = models.CharField("City", max_length=100, blank=True, default='', help_text="Enter Your City")
+    ip_address = models.CharField("IP Address", max_length=35, blank=True, default='')
+    user_agent = models.CharField("User Agent", max_length=255, blank=True, default='')
+    image = models.ImageField("Image", upload_to='users', default='default.png', blank=True,
+                              help_text="Upload Your Profile Pic")
+    birthday = models.DateField("Birthday", blank=True, null=True, help_text="Enter Your Birthday in YYYY-MM-DD Format")
+    email_sent = models.BooleanField("Email Sent", blank=True, null=True, default=False)
+    activation_deadline = models.DateTimeField("Activation Deadline", blank=True, null=True, default=None)
+    activation_date = models.DateTimeField("Activation Date", blank=True, null=True, default=None)
+    is_active = models.BooleanField("Is Active", default=True)  # Can login
+    is_staff = models.BooleanField("Is Staff", default=False)  # staff but non-superuser
+    is_admin = models.BooleanField("Is Admin", default=False)  # superuser
+    date_joined = models.DateTimeField("Date Joined", default=timezone.now)  # Sets value to current date and time
 
     class Meta:
         verbose_name = 'Registered User'

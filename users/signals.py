@@ -1,9 +1,10 @@
 from django.contrib.auth import user_logged_in, user_logged_out
-from django.db.models.signals import post_save, pre_delete
+from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 from .models import CustomUser, LoggedInUser
-from django.utils import timezone
 from django.core.exceptions import PermissionDenied
+from django.utils import timezone
+from users.views import get_ip
 
 
 @receiver(pre_delete, sender=CustomUser)
@@ -15,14 +16,16 @@ def save_superuser(sender, instance, **kwargs):
         raise PermissionDenied
 
 
-@receiver(post_save, sender=CustomUser)
-def update_user(sender, instance, created, **kwargs):
-    """
-    If a new user is created, automatically update below attributes
-    """
-    if created and not instance.email_sent:
-        instance.is_active = True
-        instance.activation_date = timezone.now()
+@receiver(user_logged_in)
+def login_ip(sender, user, request, **kwargs):
+    if user.is_authenticated:
+        user.ip_address = get_ip(request)['ip']
+        user.user_agent = get_ip(request)['user_agent']
+
+        if user.activation_date is None or user.activation_date == '':
+            user.activation_date = timezone.now()
+
+    user.save()
 
 
 @receiver(user_logged_in)

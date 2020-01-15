@@ -19,17 +19,6 @@ from django.contrib.auth.views import (
 )
 
 
-# Enabling login for user
-class UserLoginView(SuccessMessageMixin, LoginView):
-    template_name = 'users/users_login.html'
-    success_message = "Welcome! You were successfully logged in."
-
-
-# Enabling logout for user
-class UserLogoutView(LogoutView):
-    template_name = 'users/users_logout.html'
-
-
 def get_ip(request):
     """
     This function captures the user's IP Address and User-Agent at the time of signup
@@ -41,7 +30,6 @@ def get_ip(request):
         x_forward = request.META.get("HTTP_X_FORWARDED_FOR")
         if x_forward:
             ip = x_forward.split(",")[0]
-            pass
         else:
             ip = request.META.get("REMOTE_ADDR")
     except:
@@ -56,6 +44,17 @@ def get_ip(request):
     values['user_agent'] = user_agent
 
     return values
+
+
+# Enabling login for user
+class UserLoginView(SuccessMessageMixin, LoginView):
+    template_name = 'users/users_login.html'
+    success_message = "Welcome! You were successfully logged in."
+
+
+# Enabling logout for user
+class UserLogoutView(LogoutView):
+    template_name = 'users/users_logout.html'
 
 
 class UserRegisterView(SuccessMessageMixin, CreateView):

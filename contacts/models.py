@@ -8,16 +8,17 @@ from django.utils.text import slugify
 # Create your models here.
 class Contact(models.Model):
     added_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50, blank=True, default='')
-    slug = models.SlugField(unique=True, max_length=100, default='')
-    email = models.EmailField(max_length=100, blank=True, default='')
-    mobile = models.CharField(max_length=11, default='', blank=True)
-    city = models.CharField(max_length=25, default='', blank=True)
-    birthday = models.DateField(blank=True, null=True)
-    image = models.ImageField(upload_to='contacts', default='default.png', blank=True)
-    date_added = models.DateTimeField(default=timezone.now)
-    date_updated = models.DateTimeField(default=timezone.now)
+    first_name = models.CharField("First Name", max_length=255, help_text="Enter First Name")
+    last_name = models.CharField("Last Name", max_length=255, blank=True, default='', help_text="Enter Last Name")
+    slug = models.SlugField("Slug", unique=True, max_length=255, default='')
+    email = models.EmailField("Email", max_length=100, blank=True, default='', help_text="Enter Valid Email ID")
+    mobile = models.CharField("Mobile", max_length=11, blank=True, default='', help_text="Enter Mobile Number")
+    city = models.CharField("City", max_length=100, blank=True, default='', help_text="Enter City")
+    birthday = models.DateField("Birthday", blank=True, null=True, help_text="Enter Birthday in YYYY-MM-DD Format")
+    image = models.ImageField("Image", upload_to='contacts', default='default.png', blank=True,
+                              help_text="Upload Profile Pic")
+    date_added = models.DateTimeField("Date Added", default=timezone.now)
+    date_updated = models.DateTimeField("Date Updated", default=timezone.now)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
