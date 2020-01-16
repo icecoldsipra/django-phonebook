@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/users/password_reset_email.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phonebook/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/account_activation_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/account_activation_email.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_change_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/password_change_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/password_reset_complete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/password_reset_confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/password_reset_done.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_email.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/password_reset_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/password_reset_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +182,7 @@
       <workItem from="1579094088827" duration="1551000" />
       <workItem from="1579107971188" duration="12165000" />
       <workItem from="1579153714819" duration="4100000" />
-      <workItem from="1579165812789" duration="5944000" />
+      <workItem from="1579165812789" duration="6529000" />
     </task>
     <servers />
   </component>
