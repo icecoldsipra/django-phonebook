@@ -192,15 +192,24 @@ ADMINS = [
     ("Suprasad Kamath", os.environ.get('PERSONAL_EMAIL')),
 ]
 
+# Required to access location of user
+GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    
     'handlers': {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': 'Phonebook_logs.log',
         },
+        
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+            
     },
     'loggers': {
         'django': {

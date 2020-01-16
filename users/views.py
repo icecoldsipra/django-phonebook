@@ -77,7 +77,7 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
         to = form.cleaned_data['email']
         from_email = settings.EMAIL_HOST_USER
         body = render_to_string(
-            'registration/account_activation_email.html', {
+            'users/account_activation_email.html', {
                 'user': user,
                 'domain': self.request.get_host,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
@@ -137,22 +137,22 @@ class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixi
 class UserPasswordChangeView(LoginRequiredMixin, SuccessMessageMixin, PasswordChangeView):
     model = CustomUser
     form_class = UserPasswordChangeForm
-    template_name = 'registration/password_change_form.html'
+    template_name = 'users/password_change_form.html'
 
 
 class UserPasswordResetView(PasswordResetView):
-    template_name = 'registration/password_reset_form.html'
+    template_name = 'users/password_reset_form.html'
     success_url = reverse_lazy('password-reset-done')
 
 
 class UserPasswordResetDoneView(PasswordResetDoneView):
-    template_name = 'registration/password_reset_done.html'
+    template_name = 'users/password_reset_done.html'
 
 
 class UserPasswordResetConfirmView(PasswordResetConfirmView):
-    template_name = 'registration/password_reset_confirm.html'
+    template_name = 'users/password_reset_confirm.html'
     success_url = reverse_lazy('password-reset-complete')
 
 
 class UserPasswordResetCompleteView(PasswordResetCompleteView):
-    template_name = 'registration/password_reset_complete.html'
+    template_name = 'users/password_reset_complete.html'

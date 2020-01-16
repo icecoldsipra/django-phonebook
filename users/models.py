@@ -78,6 +78,7 @@ class CustomUser(AbstractBaseUser):
     slug = models.SlugField("Slug", unique=True, max_length=255, default='')
     mobile = models.CharField("Mobile", max_length=11, blank=True, default='', help_text="Enter Your Mobile Number")
     city = models.CharField("City", max_length=100, blank=True, default='', help_text="Enter Your City")
+    region = models.CharField("Region", max_length=100, blank=True, default='')
     ip_address = models.CharField("IP Address", max_length=35, blank=True, default='')
     user_agent = models.CharField("User Agent", max_length=255, blank=True, default='')
     image = models.ImageField("Image", upload_to='users', default='default.png', blank=True,

@@ -12,15 +12,15 @@ class UserAdmin(BaseUserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('email', 'pk', 'slug', 'first_name', 'last_name', 'mobile', 'city', 'birthday', 'date_joined',
-                    'email_sent', 'activation_deadline', 'activation_date', 'ip_address', 'user_agent', 'last_login',
-                    'is_active', 'is_staff', 'is_admin')
+    list_display = ('email', 'pk', 'slug', 'first_name', 'last_name', 'mobile', 'city', 'region', 'birthday',
+                    'date_joined', 'email_sent', 'activation_deadline', 'activation_date', 'ip_address', 'user_agent',
+                    'last_login', 'is_active', 'is_staff', 'is_admin')
     list_filter = ('is_active', 'is_staff', 'is_admin')
 
     # Break down how various fields appear in the Admin panel
     fieldsets = (
         (None, {'fields': ('email', 'password', 'date_joined', 'last_login', 'slug', 'ip_address', 'user_agent')}),
-        ('Personal info', {'fields': ('first_name', 'last_name', 'mobile', 'city', 'birthday')}),
+        ('Personal info', {'fields': ('first_name', 'last_name', 'mobile', 'city', 'region', 'birthday')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_admin')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
@@ -32,7 +32,7 @@ class UserAdmin(BaseUserAdmin):
         ),
     )
 
-    search_fields = ('email', 'first_name', 'last_name', 'city')  # Add search bar in Admin panel
+    search_fields = ('email', 'first_name', 'last_name', 'city', 'region')  # Add search bar in Admin panel
     ordering = ['-date_joined']  # Sort in descending order
     filter_horizontal = ()
 

@@ -5,6 +5,7 @@ from .models import CustomUser, LoggedInUser
 from django.core.exceptions import PermissionDenied
 from django.utils import timezone
 from users.views import get_ip
+from django.contrib.gis.geoip2 import GeoIP2
 
 
 @receiver(pre_delete, sender=CustomUser)
@@ -21,6 +22,13 @@ def login_ip(sender, user, request, **kwargs):
     if user.is_authenticated:
         user.ip_address = get_ip(request)['ip']
         user.user_agent = get_ip(request)['user_agent']
+
+        try:
+            g = GeoIP2()
+            user.region = g.country_name(user.ip_address)
+            print(user.region)
+        except:
+            pass
 
         if user.activation_date is None or user.activation_date == '':
             user.activation_date = timezone.now()
