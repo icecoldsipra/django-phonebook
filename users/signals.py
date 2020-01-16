@@ -4,8 +4,7 @@ from django.dispatch import receiver
 from .models import CustomUser, LoggedInUser
 from django.core.exceptions import PermissionDenied
 from django.utils import timezone
-from users.views import get_ip
-from django.contrib.gis.geoip2 import GeoIP2
+from users.views import get_user_location
 
 
 @receiver(pre_delete, sender=CustomUser)
@@ -20,15 +19,9 @@ def save_superuser(sender, instance, **kwargs):
 @receiver(user_logged_in)
 def login_ip(sender, user, request, **kwargs):
     if user.is_authenticated:
-        user.ip_address = get_ip(request)['ip']
-        user.user_agent = get_ip(request)['user_agent']
-
-        try:
-            g = GeoIP2()
-            user.region = g.country_name(user.ip_address)
-            print(user.region)
-        except:
-            pass
+        user.ip_address = get_user_location(request)['ip']
+        user.user_agent = get_user_location(request)['user_agent']
+        user.region = get_user_location(request)['region']
 
         if user.activation_date is None or user.activation_date == '':
             user.activation_date = timezone.now()

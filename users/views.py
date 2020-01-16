@@ -19,13 +19,11 @@ from django.contrib.auth.views import (
 )
 
 
-def get_ip(request):
+def get_user_location(request):
     """
-    This function captures the user's IP Address and User-Agent at the time of signup
+    This function captures the user's IP Address,User-Agent and Region at the time of signup
     """
-
     values = {}
-
     try:
         x_forward = request.META.get("HTTP_X_FORWARDED_FOR")
         if x_forward:
@@ -40,8 +38,17 @@ def get_ip(request):
     except:
         user_agent = ""
 
+    from django.contrib.gis.geoip2 import GeoIP2
+    try:
+        g = GeoIP2()
+        region = g.country_name(ip)
+
+    except:
+        region = ""
+
     values['ip'] = ip
     values['user_agent'] = user_agent
+    values['region'] = region
 
     return values
 
@@ -69,8 +76,9 @@ class UserRegisterView(SuccessMessageMixin, CreateView):
         user.activation_deadline = timezone.now() + timezone.timedelta(days=7)
         user.email_sent = True
         user.is_active = False
-        user.ip_address = get_ip(self.request)['ip']
-        user.user_agent = get_ip(self.request)['user_agent']
+        user.ip_address = get_user_location(self.request)['ip']
+        user.user_agent = get_user_location(self.request)['user_agent']
+        user.region = get_user_location(self.request)['region']
         user.save()
 
         subject = f"DjangoPhonebook | Activate Your Account | {form.cleaned_data['email']}"

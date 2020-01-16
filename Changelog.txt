@@ -1,3 +1,13 @@
+Phonebook - V1.5 (2020-01-16)
+-----------------------------
+- Updated Python version to V3.8.1
+- Enabled Geolocation services to find user's country
+- Updated models
+- Updated users/signals to automatically capture IP Addess and Region every time a user successfully logs in
+- Updated Logging
+- Updated requirements.txt and runtime.txt
+
+
 Phonebook - V1.4 (2020-01-13)
 -----------------------------
 - Sluggified the urls
