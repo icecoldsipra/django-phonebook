@@ -7,6 +7,7 @@ urlpatterns = [
     # Path to include Admin page
     path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path('phonebook-manager/', admin.site.urls, name='manage'),
+    path('admin-options/', include('admin_options.urls')),
     # Path to include users app
     path('', include('users.urls')),
     # Path to include contacts app

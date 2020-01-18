@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Changelog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonebook/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phonebook/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,8 +44,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -60,6 +65,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programs\Django\phonebook-main\templates\admin_options" />
       <recent name="D:\Programs\Django\phonebook-main\templates\users" />
       <recent name="D:\Programs\Django\phonebook-main\static\css" />
     </key>
@@ -186,7 +192,12 @@
       <workItem from="1579107971188" duration="12165000" />
       <workItem from="1579153714819" duration="4100000" />
       <workItem from="1579165812789" duration="7296000" />
-      <workItem from="1579182877354" duration="3235000" />
+      <workItem from="1579182877354" duration="3781000" />
+      <workItem from="1579247553390" duration="4277000" />
+      <workItem from="1579263958566" duration="3098000" />
+      <workItem from="1579267830722" duration="280000" />
+      <workItem from="1579328848205" duration="5102000" />
+      <workItem from="1579368710593" duration="6072000" />
     </task>
     <servers />
   </component>

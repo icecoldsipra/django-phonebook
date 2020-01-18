@@ -3,13 +3,13 @@
 {% block content %}
     <div class="container content-section p-0 my-2" style="max-width: 500px; white-space: nowrap">
         <div class="text-center mb-3">
-            <legend class="border-bottom mb-4">My Contacts</legend>
+            <legend class="border-bottom mb-4">All Contacts</legend>
         </div>
 
         {% if object_list %}
             {% for object in object_list %}
                 <div class="list-group">
-                    <a class="list-group-item list-group-item-action my-1" href="{% url 'contacts-view' object.slug %}" style="background-color: wheat; min-height: 50px;">
+                    <a class="list-group-item list-group-item-action my-1" href="{% url 'admin-contacts-view' object.slug %}" style="background-color: wheat; min-height: 50px;">
                         <div class="row">
                             <div class="col col-md-1 text-left">
                                 <img src="{{ object.image.url }}" width="40" height="30" />
@@ -27,8 +27,8 @@
             </div>
         {% endif %}
         <div class="border-top text-center my-4 pt-3">
-            <a class="btn btn-outline-success" type="submit" href="{% url 'contacts-add' %}">Add</a>
-            <a class="btn btn-outline-info ml-2" type="submit" href="{% url 'contacts-home' %}">Home</a>
+            <a class="btn btn-outline-success" type="submit" href="{% url 'admin-contacts-add' %}">Add</a>
+            <a class="btn btn-outline-info ml-2" type="submit" href="{% url 'admin-home' %}">Home</a>
         </div>
     </div>
 {% endblock content %}

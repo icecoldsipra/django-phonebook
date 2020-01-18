@@ -123,14 +123,14 @@ class CustomUser(AbstractBaseUser):
         Does the user have a specific permission?
         """
         # Simplest possible answer: Yes, always
-        return True
+        return self.is_staff
 
     def has_module_perms(self, app_label):
         """
         Does the user have permissions to view the app `app_label`?
         """
         # Simplest possible answer: Yes, always
-        return True
+        return self.is_staff
 
     def get_absolute_url(self):
         return reverse('users-profile', kwargs={'slug': self.slug})

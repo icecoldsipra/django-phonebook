@@ -4,7 +4,7 @@
     <div class="container content-section text-center p-0 my-2" style="max-width: 500px;">
         <div class="list-group">
             <a href="{% url 'contacts-browse' %}" class="list-group-item list-group-item-action my-1" style="background-color: wheat; min-height: 50px;">
-                Browse All Contacts
+                My Contacts
             </a>
         </div>
         <div class="list-group">
@@ -14,8 +14,8 @@
         </div>
         {% if user.is_staff or user.is_admin %}
             <div class="list-group">
-                <a href="{% url 'admin:index' %}" class="list-group-item list-group-item-action my-1" style="background-color: wheat; min-height: 50px;">
-                    Admin
+                <a href="{% url 'admin-home' %}" class="list-group-item list-group-item-action my-1" style="background-color: wheat; min-height: 50px;">
+                    Admin Options
                 </a>
             </div>
         {% endif %}

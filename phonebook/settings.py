@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (bool(os.environ.get('DJANGO_DEBUG')) == True)
+DEBUG = bool(os.environ.get('DJANGO_DEBUG'))
 
 if not DEBUG:
     # To avoid transmitting the CSRF cookie over HTTP accidentally
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # User Apps
     'users.apps.UsersConfig',
     'contacts.apps.ContactsConfig',
+    'admin_options.apps.AdminOptionsConfig',
     'api.apps.ApiConfig',
 ]
 

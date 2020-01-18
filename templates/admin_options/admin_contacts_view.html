@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container p-0" style="width: 500px">
+        <legend class="border-bottom mb-3 text-center">Contact View</legend>
+        <div class="row">
+            <div class="col d-flex justify-content-center align-items-center h100 mb-3">
+                <img src="{{ object.image.url }}"/>
+            </div>
+        </div>
+
+        <div class="text-center" style="background-color: whitesmoke; width: available; font-size: smaller">
+            <table class="table table-responsive table-striped text-center d-flex justify-content-center">
+                <tr>
+                    <th nowrap>First Name</th>
+                    <td nowrap>{{ object.first_name }}</td>
+                </tr>
+                <tr>
+                    <th nowrap>Last Name</th>
+                    <td nowrap>{{ object.last_name }}</td>
+                </tr>
+                <tr>
+                    <th nowrap>Email</th>
+                    <td nowrap>{{ object.email }}</td>
+                </tr>
+                <tr>
+                    <th nowrap>Mobile</th>
+                    <td nowrap>{{ object.mobile }}</td>
+                </tr>
+                <tr>
+                    <th nowrap>City</th>
+                    <td nowrap>{{ object.city }}</td>
+                </tr>
+                <tr>
+                    <th nowrap>Birthday</th>
+                    <td nowrap>{{ object.birthday }}</td>
+                </tr>
+                <tr>
+                    <th nowrap>Date Added</th>
+                    <td nowrap>{{ object.date_added }}</td>
+                </tr>
+                <tr>
+                    <th nowrap>Last Updated</th>
+                    <td nowrap>{{ object.date_updated }}</td>
+                </tr>
+                <tr>
+                    <th nowrap>Added By</th>
+                    <td nowrap>{{ object.added_by }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="container text-center">
+            <div class="border-top text-center my-4 pt-3">
+                <a class="btn btn-outline-success ml-2" href="{% url 'contacts-update' object.slug %}" type="submit">Update</a>
+                <a class="btn btn-outline-danger ml-2" href="{% url 'contacts-delete' object.slug %}" type="submit" >Delete</a>
+                <a class="btn btn-outline-info ml-2" href="{% url 'admin-home' %}" type="submit">Home</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
