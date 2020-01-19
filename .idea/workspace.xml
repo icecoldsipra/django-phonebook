@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Changelog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/signals.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/phonebook/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phonebook/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_browse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/base_site.html" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -197,7 +194,8 @@
       <workItem from="1579263958566" duration="3098000" />
       <workItem from="1579267830722" duration="280000" />
       <workItem from="1579328848205" duration="5102000" />
-      <workItem from="1579368710593" duration="6072000" />
+      <workItem from="1579368710593" duration="9021000" />
+      <workItem from="1579409207976" duration="62000" />
     </task>
     <servers />
   </component>

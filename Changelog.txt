@@ -1,3 +1,10 @@
+Phonebook - V1.6 (2020-01-19)
+-----------------------------
+- Enabled advanced Admin options
+- Updated some templates
+- Enabled auto logout features based on user's inactivity
+
+
 Phonebook - V1.5 (2020-01-16)
 -----------------------------
 - Updated Python version to V3.8.1

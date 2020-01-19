@@ -14,6 +14,11 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DJANGO_DEBUG'))
 
+# Ensures user is logged out as soon as browser is closed
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# Ensures user is logged out if his session is idle for 20 minutes
+SESSION_COOKIE_AGE = 1200
+
 if not DEBUG:
     # To avoid transmitting the CSRF cookie over HTTP accidentally
     CSRF_COOKIE_SECURE = True
