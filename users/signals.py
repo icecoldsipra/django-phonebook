@@ -30,10 +30,12 @@ def login_ip(sender, user, request, **kwargs):
 
 
 @receiver(user_logged_in)
-def on_user_logged_in(sender, request, **kwargs):
-    LoggedInUser.objects.get_or_create(user=kwargs.get('user'))
+def on_user_logged_in(sender, user, **kwargs):
+    LoggedInUser.objects.get_or_create(user=user)
+    #user.slug = CustomUser.slug
+    #print((slug)
 
 
 @receiver(user_logged_out)
-def on_user_logged_out(sender, **kwargs):
-    LoggedInUser.objects.filter(user=kwargs.get('user')).delete()
+def on_user_logged_out(sender, user, **kwargs):
+    LoggedInUser.objects.filter(user=user).delete()

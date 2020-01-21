@@ -9,10 +9,11 @@
         {% if object_list %}
             {% for object in object_list %}
                 <div class="list-group">
-                    <a class="list-group-item list-group-item-action my-1" href="" style="background-color: wheat; min-height: 50px;">
+                    <a class="list-group-item list-group-item-action my-1" href="{% url 'admin-loggedinusers-logout' object.pk %}" style="background-color: wheat; min-height: 50px;">
                         <div class="row">
                             <div class="col text-center">
                                 {{ object.user}}
+                                {{ object.pk }}
                             </div>
                         </div>
                     </a>

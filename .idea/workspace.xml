@@ -4,10 +4,15 @@
     <list default="true" id="c7964666-9e68-4416-bbc4-4dfb1f2fdd6b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Changelog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contacts/signals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phonebook/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/phonebook/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/base_site.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_options/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_options/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin_options/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin_options/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_options/admin_loggedinusers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_options/admin_loggedinusers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_options/admin_options_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_options/admin_options_home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin_options/admin_useraccessreview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_options/admin_useraccessreview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contacts/contacts_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contacts/contacts_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/signals.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +46,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -195,7 +200,9 @@
       <workItem from="1579267830722" duration="280000" />
       <workItem from="1579328848205" duration="5102000" />
       <workItem from="1579368710593" duration="9021000" />
-      <workItem from="1579409207976" duration="62000" />
+      <workItem from="1579409207976" duration="386000" />
+      <workItem from="1579544127137" duration="88000" />
+      <workItem from="1579600914872" duration="5155000" />
     </task>
     <servers />
   </component>

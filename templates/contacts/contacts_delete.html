@@ -10,7 +10,7 @@
             <form method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     {% csrf_token %}
-                    Do you really want to delete <label style="color: red">{{ object.get_full_name }}</label>?
+                    Do you really want to delete user - <label style="color: red">{{ object.get_full_name }}</label>?
                 </div>
                 <div class="border-top text-center my-4 pt-3">
                     <button class="btn btn-outline-danger" type="submit">Delete</button>

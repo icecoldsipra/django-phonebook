@@ -49,8 +49,8 @@ class LoggedInUserListView(LoginRequiredMixin, ListView):
 class LoggedInUserDeleteView(LoginRequiredMixin, DeleteView):
     model = LoggedInUser
     template_name = 'contacts/contacts_delete.html'
-    success_message = "User logged out successfully."
-    success_url = reverse_lazy('admin-loggedinuser')
+    success_message = "User was logged out successfully."
+    success_url = reverse_lazy('admin-loggedinusers')
 
     def delete(self, request, *args, **kwargs):
         obj = self.get_object()
@@ -58,8 +58,25 @@ class LoggedInUserDeleteView(LoginRequiredMixin, DeleteView):
         return super().delete(request, *args, **kwargs)
 
 
-class UserAccessReviewView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class RegisteredUsersListView(LoginRequiredMixin, ListView):
+    model = LoggedInUser
+    template_name = 'admin_options/admin_registeredusers.html'
+
+    def get_queryset(self):
+        return CustomUser.objects.filter(is_active=True)
+
+
+class PendingUsersListView(LoginRequiredMixin, ListView):
+    model = LoggedInUser
+    template_name = 'admin_options/admin_pendingusers.html'
+
+    def get_queryset(self):
+        return CustomUser.objects.filter(is_active=False)
+
+
+class UserAccessReviewListView(LoginRequiredMixin, SuccessMessageMixin, ListView):
     model = CustomUser
     template_name = 'admin_options/admin_useraccessreview.html'
-    fields = ['email', 'is_active', 'is_staff', 'is_admin']
-    success_message = "Profile updated successfully."
+
+    def get_queryset(self):
+        return CustomUser.objects.all()

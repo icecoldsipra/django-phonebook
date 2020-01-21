@@ -153,8 +153,19 @@ class CustomUser(AbstractBaseUser):
 # Model to store the list of logged in users
 class LoggedInUser(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='logged_in_user')
+    # slug = models.SlugField("Slug", unique=True, max_length=255, default='')
     # Session keys are 32 characters long
     session_key = models.CharField(max_length=32, null=True, blank=True)
 
     def __str__(self):
         return self.user
+
+    """
+    def get_absolute_url(self):
+        return reverse('users-profile', kwargs={'slug': self.slug})
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = CustomUser.slug
+        super().save(*args, **kwargs)
+    """
