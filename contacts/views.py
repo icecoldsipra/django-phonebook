@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from .models import Contact
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -9,10 +9,13 @@ from django.contrib import messages
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def contacts_home(request):
-    return render(request, 'contacts/contacts_home.html')
+    if request.user.is_authenticated:
+        return render(request, 'contacts/contacts_home.html')
 
 
 # To display all contacts in the database specific to logged in user

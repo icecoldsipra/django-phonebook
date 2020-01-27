@@ -1,5 +1,6 @@
 from django import forms
 from .models import CustomUser
+from django.contrib.auth.forms import SetPasswordForm
 # from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 
@@ -58,6 +59,9 @@ class UserPasswordChangeForm(forms.ModelForm):
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
+    def __init__(self, request, *args, **kwargs):
+        super().__init__(request.user, *args, **kwargs)
+
     def clean_password2(self):
         # Check that the two password entries match
         password1 = self.cleaned_data.get("password1")
@@ -67,14 +71,7 @@ class UserPasswordChangeForm(forms.ModelForm):
         return password2
 
     def save(self, commit=True):
-        # Save the provided password in hashed format
-        user = super().save(commit=False)
-        user.set_password(self.cleaned_data["password1"])
+        self.user.set_password(self.cleaned_data['new_password1'])
         if commit:
-            user.save()
-        return user
-
-    class Meta:
-        model = CustomUser
-        fields = ('password1', 'password2')
-
+            self.user.save()
+        return self.user

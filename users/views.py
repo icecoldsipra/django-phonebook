@@ -15,7 +15,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.conf import settings
 from django.contrib.auth.views import (
     LoginView, LogoutView, PasswordChangeView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView,
-    PasswordResetCompleteView
+    PasswordResetCompleteView, PasswordChangeDoneView
 )
 
 
@@ -144,8 +144,13 @@ class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixi
 
 class UserPasswordChangeView(LoginRequiredMixin, SuccessMessageMixin, PasswordChangeView):
     model = CustomUser
-    form_class = UserPasswordChangeForm
     template_name = 'users/password_change_form.html'
+    form_class = UserPasswordChangeForm
+    success_url = reverse_lazy('password-change-done')
+
+
+class UserPasswordChangeDoneView(PasswordChangeDoneView):
+    template_name = 'users/password_change_done.html'
 
 
 class UserPasswordResetView(PasswordResetView):

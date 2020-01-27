@@ -3,17 +3,17 @@
 {% block content %}
     <div class="container content-section p-0 my-2" style="max-width: 500px; white-space: nowrap">
         <div class="text-center mb-3">
-            <legend class="border-bottom mb-4">User Access Review</legend>
+            <legend class="border-bottom mb-4">User Access View</legend>
         </div>
 
         {% if object_list %}
             {% for object in object_list %}
                 <div class="list-group">
-                    <a class="list-group-item list-group-item-action my-1" href="{% url 'contacts-view' object.slug %}" style="background-color: wheat; min-height: 50px;">
+                    <a class="list-group-item list-group-item-action my-1" href="{% url 'admin-contacts-view' object.slug %}" style="background-color: wheat; min-height: 50px;">
                         <div class="row">
                             <div class="col text-center">
                                 <span class="text-left">{{ object.email}}</span>
-                                <span class="text-right">{{ object.is_active}}</span>
+                                <span class="text-right">{{ object.slug}}</span>
                             </div>
                         </div>
                     </a>

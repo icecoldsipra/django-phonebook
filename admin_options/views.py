@@ -38,7 +38,12 @@ class AdminContactListView(LoginRequiredMixin, ListView):
 class AdminContactDetailView(LoginRequiredMixin, DetailView):
     model = Contact
     template_name = 'admin_options/admin_contacts_view.html'
-    # permission_required = ('admin_options.can_view', )
+
+
+# To view all details of a single contact
+class AdminUserDetailView(LoginRequiredMixin, DetailView):
+    model = CustomUser
+    template_name = 'users/users_profile.html'
 
 
 class LoggedInUserListView(LoginRequiredMixin, ListView):
@@ -74,9 +79,9 @@ class PendingUsersListView(LoginRequiredMixin, ListView):
         return CustomUser.objects.filter(is_active=False)
 
 
-class UserAccessReviewListView(LoginRequiredMixin, SuccessMessageMixin, ListView):
+class UserAccessView(LoginRequiredMixin, ListView):
     model = CustomUser
-    template_name = 'admin_options/admin_useraccessreview.html'
+    template_name = 'admin_options/admin_useraccessview.html'
 
     def get_queryset(self):
         return CustomUser.objects.all()
