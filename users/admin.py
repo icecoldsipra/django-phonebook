@@ -43,9 +43,6 @@ User = get_user_model()
 # Register models
 admin.site.register(User, UserAdmin)
 
-# Remove groups from Admin interface
-admin.site.unregister(Group)
-
 admin.site.site_header = "Phonebook Manager"
 admin.site.site_title = "Phonebook Manager Portal"
 admin.site.index_title = "Welcome to Django Phonebook Manager Portal!"

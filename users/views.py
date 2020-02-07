@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import CustomUserCreationForm, CustomUserChangeForm, UserPasswordChangeForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
@@ -142,15 +143,17 @@ class UserUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixi
         return False
 
 
+"""
 class UserPasswordChangeView(LoginRequiredMixin, SuccessMessageMixin, PasswordChangeView):
     model = CustomUser
     template_name = 'users/password_change_form.html'
-    form_class = UserPasswordChangeForm
+    form_class = PasswordChangeForm
     success_url = reverse_lazy('password-change-done')
 
 
 class UserPasswordChangeDoneView(PasswordChangeDoneView):
     template_name = 'users/password_change_done.html'
+"""
 
 
 class UserPasswordResetView(PasswordResetView):

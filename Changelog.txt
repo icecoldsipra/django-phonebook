@@ -1,9 +1,17 @@
+Phonebook - V1.8 (2020-01-29)
+-----------------------------
+- Updated UserCreationForm and UserChangeForm details
+- Added custom 500 error page
+
+
 Phonebook - V1.7 (2020-01-21)
 -----------------------------
 - Fixed email notifications when deleting contacts
 - Updated users signals
 - Admin can now force-logout users
 - Admin can see registed and yet-to-register users in admin options
+- Updated password change and reset methods
+- Fixed homepage redirection issue
 
 
 Phonebook - V1.6 (2020-01-19)

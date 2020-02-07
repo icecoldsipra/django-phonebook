@@ -12,12 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG'))
-
-# Ensures user is logged out as soon as browser is closed
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-# Ensures user is logged out if his session is idle for 20 minutes
-SESSION_COOKIE_AGE = 1200
+DEBUG = bool(os.environ.get("DJANGO_DEBUG"))
 
 if not DEBUG:
     # To avoid transmitting the CSRF cookie over HTTP accidentally
@@ -26,6 +21,11 @@ if not DEBUG:
     SESSION_COOKIE_SECURE = True
     # To redirect all HTTP requests to HTTPS
     SECURE_SSL_REDIRECT = True
+
+# Ensures user is logged out as soon as browser is closed
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# Ensures user is logged out if his session is idle for 20 minutes
+SESSION_COOKIE_AGE = 1200
 
 ALLOWED_HOSTS = ['djangophonebook.herokuapp.com', '127.0.0.1', 'localhost']
 
@@ -69,6 +69,20 @@ MIDDLEWARE = [
     'users.middleware.OneSessionPerUserMiddleware',  # Added
 ]
 
+# Required for Django Debug Toolbar
+if DEBUG:
+    INSTALLED_APPS += [
+        'debug_toolbar',
+    ]
+
+    MIDDLEWARE += [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',  # Added
+    ]
+
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]
+
 ROOT_URLCONF = 'phonebook.urls'
 
 TEMPLATES = [
@@ -93,26 +107,13 @@ WSGI_APPLICATION = 'phonebook.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'djangodb',
-            'USER': 'postgres',
-            'PASSWORD': 'password',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
-
+}
+    
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

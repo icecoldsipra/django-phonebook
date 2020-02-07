@@ -26,6 +26,5 @@ class OneSessionPerUserMiddleware:
 
         # This is where you add any extra code to be executed for each request/response after
         # the view is called.
-        # For this tutorial, we're not adding any code so we just return the response
 
         return response
